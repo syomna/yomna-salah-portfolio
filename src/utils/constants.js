@@ -20,6 +20,7 @@ import chatty from "../assets/projects/chatty.jpeg";
 import ipark from "../assets/projects/ipark.jpeg";
 import AKM from "../assets/projects/AKM.jpeg";
 import PenPoints from "../assets/projects/PenPoints.jpeg";
+import StoneStreet from "../assets/projects/StoneStreet.jpeg";
 import MyEyes from "../assets/projects/MyEyes.jpeg";
 import NannyFinder from "../assets/projects/NannyFinder.jpeg";
 import Azkari from "../assets/projects/Azkari.jpeg";
@@ -30,6 +31,26 @@ import BostaClone from "../assets/projects/BostaClone.jpeg";
 export const MainColor = "rgba(123, 50, 255, 0.5)";
 export const Grey = "#d4d0d9";
 export const Skillss = [
+  {
+    name: "Flutter",
+    icon: flutter,
+  },
+  {
+    name: "Dart",
+    icon: dart,
+  },
+  {
+    name: "Firebase",
+    icon: firebase,
+  },
+  {
+    name: "git",
+    icon: git,
+  },
+  {
+    name: "figma",
+    icon: figma,
+  },
   {
     name: "HTML 5",
     icon: html,
@@ -70,29 +91,26 @@ export const Skillss = [
     name: "Three JS",
     icon: threejs,
   },
-  {
-    name: "Flutter",
-    icon: flutter,
-  },
-  {
-    name: "Dart",
-    icon: dart,
-  },
-  {
-    name: "Firebase",
-    icon: firebase,
-  },
-  {
-    name: "git",
-    icon: git,
-  },
-  {
-    name: "figma",
-    icon: figma,
-  },
+  
 ];
 
 export const WorkingExperience = [
+  {
+    img: Upwork,
+    title: "Flutter Developer",
+    place: "Stone Street Syndicate",
+    date: "Aug 2025 - Present",
+    description: [
+      "• Optimize legacy codebases and engineer new features to improve performance and scalability across mobile and web platforms.",
+
+"• Drive UI/UX enhancements by proposing and implementing user-centric solutions that streamline complex workflows and increase overall app engagement.",
+
+"• Provide ongoing post-release maintenance and technical support, ensuring high app stability and rapidly addressing user-reported issues.",
+
+
+"• Manage a 'Casting Calls' board integration featuring Stripe/RevenueCat payments and oversee automated CI/CD pipelines via Codemagic for seamless releases."
+    ],
+  },
   {
     img: Upwork,
     title: "Software Developer",
@@ -101,11 +119,11 @@ export const WorkingExperience = [
     description: [
       "• Developed 15+ mobile applications from scratch using Flutter, delivering end-to-end solutions for diverse clients.",
 
-      "• Collaborated with clients to build seamless mobile apps and responsive React.js web UIs.",
+      "• Collaborate closely with clients to architect seamless mobile experiences and develop highly responsive web interfaces.",
 
-      "• Engineered app functionality via Firebase (real-time DB, auth, storage) and integrated various external APIs.",
+      "• Architect robust app functionality by leveraging Firebase services and integrate complex external APIs to extend app capabilities.",
 
-      "• Partnered with backend developers and UI/UX designers for user-friendly mobile and web solutions.",
+      "• Partner with backend developers and UI/UX designers for user-friendly mobile and web solutions.",
     ],
   },
   {
@@ -292,6 +310,48 @@ export const WebProjects = [
 
 export const MobileProjects = [
   {
+    img: StoneStreet,
+    title: "Stone Street: Book photos",
+    subTitle:
+"A professional photography and booking platform. I led the architectural refactor to improve performance and implemented core new features to enhance the user booking experience.",    tech: [
+      {
+        name: "flutter",
+        color: "#a1e9ff",
+      },
+      {
+        name: "firebase",
+        color: "#ffcc80",
+      },
+
+      {
+        name: "stripe",
+        color: "#ffcc80",
+      },
+      {
+        name: "cloud-functions",
+        color: "#a5d6a7",
+      },
+      {
+        name: "provider",
+        color: "#a5d6a7",
+      },
+      {
+        name: "revenue-cat",
+        color: "#ffc8ae",
+      },
+      {
+        name: "code-magic",
+        color: "#a5d6a7",
+      },
+
+    ],
+    isApp: true,
+    playStore:
+      "https://play.google.com/store/apps/details?id=stone.street.app&hl=en",
+    appStore:
+      "https://apps.apple.com/us/app/stone-street-book-photos/id6557076325",
+  },
+  {
     img: PenPoints,
     title: "PenPoints - interactive spelling coach",
     subTitle:
@@ -334,40 +394,7 @@ export const MobileProjects = [
     appStore:
       "https://apps.apple.com/eg/app/penpoints-fun-spelling-coach/id6737171584",
   },
-  {
-    img: MyEyes,
-    title: "MyEyes - helps vision impaired people",
-    subTitle:
-      "A mobile app designed to empower vision-impaired individuals by enhancing their independence and accessibility, helping them navigate their environment and access information with ease.",
-    tech: [
-      {
-        name: "flutter",
-        color: "#a1e9ff",
-      },
-      {
-        name: "gemini-ai",
-        color: "#ffcc80",
-      },
-      {
-        name: "firebase-crashlytics",
-        color: "#ffc8ae",
-      },
-      {
-        name: "google-analytics",
-        color: "#ffcc80",
-      },
-      {
-        name: "text-to-speech",
-        color: "#a5d6a7",
-      },
-      {
-        name: "provider",
-        color: "#a5d6a7",
-      },
-    ],
-    demo: "https://www.youtube.com/shorts/S7HYC4YXEwA",
-    github: "https://github.com/syomna/my-eyes",
-  },
+  
   {
     img: AKM,
     title: "AKM - العبد الكريم للخرسانة",
@@ -406,6 +433,40 @@ export const MobileProjects = [
     isApp: true,
     playStore: "https://play.google.com/store/apps/details?id=com.sti.akm",
     appStore: "https://apps.apple.com/sa/app/akm-للخرسانة/id6476569574?l=ar",
+  },
+  {
+    img: MyEyes,
+    title: "MyEyes - helps vision impaired people",
+    subTitle:
+      "A mobile app designed to empower vision-impaired individuals by enhancing their independence and accessibility, helping them navigate their environment and access information with ease.",
+    tech: [
+      {
+        name: "flutter",
+        color: "#a1e9ff",
+      },
+      {
+        name: "gemini-ai",
+        color: "#ffcc80",
+      },
+      {
+        name: "firebase-crashlytics",
+        color: "#ffc8ae",
+      },
+      {
+        name: "google-analytics",
+        color: "#ffcc80",
+      },
+      {
+        name: "text-to-speech",
+        color: "#a5d6a7",
+      },
+      {
+        name: "provider",
+        color: "#a5d6a7",
+      },
+    ],
+    demo: "https://www.youtube.com/shorts/S7HYC4YXEwA",
+    github: "https://github.com/syomna/my-eyes",
   },
   {
     img: NannyFinder,
@@ -460,6 +521,18 @@ export const MobileProjects = [
       },
       {
         name: "provider",
+        color: "#a5d6a7",
+      },
+      {
+        name: "clean-architecture",
+        color: "#ffcc80",
+      },
+      {
+        name: "unit-testing",
+        color: "#a1e9ff",
+      },
+      {
+        name: "code-magic",
         color: "#a5d6a7",
       },
     ],
