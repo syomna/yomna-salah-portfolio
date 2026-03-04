@@ -1,91 +1,107 @@
-import React, { useState } from "react";
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-  Stack,
-  Toolbar,
-  useMediaQuery,
-} from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useTheme } from "@mui/material/styles";
+import React from "react";
+import { AppBar, Toolbar, Typography, Button, IconButton, Box, useTheme } from "@mui/material";
+import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+import { motion } from "framer-motion";
 
-const Navbar = () => {
-  const items = ["About", "Experience", "Projects", "Contact"];
+const navItems = ["About", "Expertise", "Experience", "Projects", "Contact"];
+
+const Navbar = ({ mode, toggleMode }) => {
   const theme = useTheme();
-  const isMedium = useMediaQuery(theme.breakpoints.down("md"));
 
-  const [anchorEl, setAnchorEl] = useState(null);
+  const handleScroll = (id) => {
+    // Logic: If 'Expertise' is clicked, use 'about' as the target ID
+    const targetId = id === "Expertise" ? "about" : id.toLowerCase();
+    const element = document.getElementById(targetId);
 
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
 
-  const handleMenuClose = () => {
-    setAnchorEl(null);
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
     <AppBar
       position="fixed"
       sx={{
-        backgroundColor: "rgba(0, 0, 0, 0.2)",
-        boxShadow: "0px 4px 5px rgba(123, 50, 255, 0.5)",
+        background: mode === "dark" 
+          ? "rgba(10, 10, 12, 0.8)" 
+          : "rgba(255, 255, 255, 0.8)",
+        backdropFilter: "blur(12px)",
+        boxShadow: "none",
+        borderBottom: `1px solid ${theme.palette.divider}`,
+        backgroundImage: "none",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 15 } }}>
-        <Box component="img" src="/logo.png" height={45} alt="Logo" />
+      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 10 } }}>
+        <Typography
+          variant="h6"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          component={motion.div}
+          whileHover={{ scale: 1.05 }}
+          sx={{
+            fontFamily: "'Courier Prime', monospace",
+            fontWeight: 800,
+            cursor: "pointer",
+            color: theme.palette.primary.main,
+            letterSpacing: -1
+          }}
+        >
+          YS.DEV
+        </Typography>
 
-        {isMedium ? (
-          <>
-            <IconButton edge="end" color="inherit" onClick={handleMenuOpen}>
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleMenuClose}
-              PaperProps={{
-                sx: {
-                  backgroundColor: "rgba(0, 0, 0, 0.8)", // Dark background for the dropdown menu
+        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1, alignItems: "center" }}>
+          {navItems.map((item) => (
+            <Button
+              key={item}
+              onClick={() => handleScroll(item)}
+              component={motion.button}
+              whileHover={{ y: -2 }}
+              sx={{
+                color: theme.palette.text.primary,
+                fontSize: "0.85rem",
+                fontWeight: 600,
+                px: 2,
+                "&:hover": { 
+                  background: "transparent", 
+                  color: theme.palette.primary.main 
                 },
               }}
             >
-              {items.map((i) => (
-                <MenuItem key={i} onClick={handleMenuClose}>
-                  <a
-                    href={`#${i}`}
-                    style={{ color: "inherit", textDecoration: "none" }}
-                  >
-                    {i}
-                  </a>
-                </MenuItem>
-              ))}
-            </Menu>
-          </>
-        ) : (
-          <Stack direction="row" spacing={3}>
-            {items.map((i) => (
-              <Button
-                key={i}
-                href={`#${i}`}
-                sx={{
-                  color: "white",
-                  textTransform: "none",
-                  transition: "transform 0.3s ease-in-out",
-                  "&:hover": {
-                    transform: "scale(1.1)",
-                  },
-                }}
-              >
-                {i}
-              </Button>
-            ))}
-          </Stack>
-        )}
+              {item}
+            </Button>
+          ))}
+
+          <IconButton 
+            onClick={toggleMode} 
+            sx={{ 
+              color: theme.palette.text.primary,
+              ml: 2,
+              border: `1px solid ${theme.palette.divider}`,
+              borderRadius: 2
+            }}
+            component={motion.button}
+            whileTap={{ scale: 0.9 }}
+          >
+            {mode === "dark" ? <LightModeOutlined /> : <DarkModeOutlined />}
+          </IconButton>
+        </Box>
+
+        <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <IconButton 
+            onClick={toggleMode} 
+            sx={{ color: theme.palette.text.primary }}
+          >
+            {mode === "dark" ? <LightModeOutlined  /> : <DarkModeOutlined />}
+          </IconButton>
+        </Box>
       </Toolbar>
     </AppBar>
   );

@@ -1,31 +1,28 @@
-import { Favorite } from "@mui/icons-material";
-import { Box, Typography } from "@mui/material";
+import React from "react";
+import { Box, Typography, Container, Divider } from "@mui/material";
 
 const Footer = () => {
-  return (
-    <Box
-      component="footer"
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
-      mt={5}
-      py={4}
-      px={{ xs: 2, md: 10 }}
-      sx={{ backgroundColor: "rgba(0,0,0,0.4)", color: "white" }}
-    >
-      <Box display="flex" alignItems="center">
-        <Box
-          component="img"
-          src="/logo.png"
-          alt="logo"
-          height={30}
-          width={30}
-          mr={2}
-        />
-        <span>Yomna Salah &copy; {new Date().getFullYear()}</span>
-      </Box>
+  // Get current year dynamically
+  const currentYear = new Date().getFullYear();
 
-      <Typography>Made with {<Favorite sx={{ color: "red" }} />}</Typography>
+  return (
+    <Box sx={{ pb: 6, pt: 4, textAlign: "center" }}>
+      <Container maxWidth="lg">
+        <Divider sx={{ mb: 6, opacity: 0.1 }} />
+        <Typography 
+          variant="body2" 
+          sx={{ 
+            fontFamily: "'Courier Prime', monospace", 
+            color: "text.secondary",
+            letterSpacing: 1 
+          }}
+        >
+          DESIGNED & BUILT BY YOMNA SALAH — {currentYear}
+        </Typography>
+        <Typography variant="caption" sx={{ color: "text.disabled", mt: 1, display: "block" }}>
+          Built with React • MUI • Framer Motion
+        </Typography>
+      </Container>
     </Box>
   );
 };

@@ -1,29 +1,87 @@
-import { Box, createTheme, ThemeProvider } from "@mui/material";
-import React from "react";
-import AnimatedCharacterBackground from "./AnimatedCharacterBackground";
+import { useMemo } from "react";
+import { 
+  Box, 
+  createTheme, 
+  ThemeProvider, 
+  CssBaseline, 
+  GlobalStyles 
+} from "@mui/material";
+import { create } from "zustand";
+import { motion, AnimatePresence } from "framer-motion";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// Component Imports
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 import About from "./components/About";
 import Experience from "./components/Experience";
-import Footer from "./components/Footer";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
-import Skills from "./components/Skills";
 import ContactForm from "./components/ContactForm";
+import Footer from "./components/Footer";
 
-const theme = createTheme({
-  typography: {
-    fontFamily: "Courier Prime, monospace",
-    allVariants: {
-      color: "#FFFFFF", // Set the default text color to white for all Typography components
-    },
-  },
-});
+// --- THEME STORE (Zustand) ---
+const useThemeStore = create((set) => ({
+  mode: "light",
+  toggleMode: () => set((state) => ({ mode: state.mode === "light" ? "dark" : "light" })),
+}));
 
 function App() {
+  const { mode, toggleMode } = useThemeStore();
+
+  const theme = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+          primary: {
+            main: mode === "dark" ? "#BB86FC" : "#6200EE",
+          },
+          secondary: {
+            main: "#03DAC6",
+          },
+          background: {
+            default: mode === "dark" ? "#030303" : "#F8F9FA",
+            paper: mode === "dark" ? "#121212" : "#FFFFFF",
+          },
+          text: {
+            primary: mode === "dark" ? "#E0E0E0" : "#202124",
+            secondary: mode === "dark" ? "#A0A0A0" : "#5F6368",
+          },
+        },
+        typography: {
+          fontFamily: "'Inter', sans-serif",
+          h1: { fontWeight: 800, letterSpacing: "-0.02em" },
+          h2: { fontWeight: 700, letterSpacing: "-0.01em" },
+          button: { textTransform: "none", fontWeight: 600 },
+        },
+        shape: {
+          borderRadius: 16,
+        },
+      }),
+    [mode]
+  );
+
   return (
     <ThemeProvider theme={theme}>
-      <Box>
-        {/* Animated background, positioned absolutely behind content */}
+      <CssBaseline />
+      <GlobalStyles
+        styles={{
+          body: { 
+            transition: "background-color 0.4s ease, color 0.4s ease",
+            overflowX: "hidden" 
+          },
+          "::-webkit-scrollbar": { width: "8px" },
+          "::-webkit-scrollbar-thumb": { 
+            backgroundColor: mode === "dark" ? "#333" : "#ccc", 
+            borderRadius: "10px" 
+          },
+        }}
+      />
+
+      <Box sx={{ position: "relative", minHeight: "100vh" }}>
+        
+        {/* --- BACKGROUND LAYER --- */}
         <Box
           sx={{
             position: "fixed",
@@ -31,38 +89,65 @@ function App() {
             left: 0,
             width: "100%",
             height: "100%",
-            zIndex: 0, // Ensure this is behind everything else
+            zIndex: -1,
+            background: mode === "dark" 
+              ? "radial-gradient(circle at 50% -20%, #1a1a2e 0%, #030303 80%)"
+              : "radial-gradient(circle at 50% -20%, #f0f0ff 0%, #f8f9fa 80%)",
           }}
         >
-          <AnimatedCharacterBackground />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3], x: [0, 50, 0], y: [0, 30, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+            style={{
+              position: "absolute", top: "10%", left: "15%", width: "40vw", height: "40vw",
+              background: "radial-gradient(circle, rgba(187, 134, 252, 0.15) 0%, transparent 70%)",
+              filter: "blur(60px)",
+            }}
+          />
         </Box>
 
-        {/* Content wrapper, including the Navbar and page sections */}
-        <Box
-          sx={{
-            position: "relative",
-            zIndex: 1,
-            minHeight: "100vh",
-          }}
-        >
-          <Navbar />
+        {/* --- CONTENT LAYER --- */}
+        <Box sx={{ position: "relative", zIndex: 1 }}>
+          <Navbar toggleMode={toggleMode} mode={mode} />
+          
           <Box
+            component="main"
             sx={{
-              pt: 4,
-              px: { xs: 2, md: 15 },
-              py: 4,
+              maxWidth: "1200px",
+              margin: "0 auto",
+              pt: { xs: 8, md: 10 }, // Reduced top padding
+              px: { xs: 3, md: 6 },
+              display: "flex",
+              flexDirection: "column",
+              gap: { xs: 8, md: 10 }, // Reduced from 25 to 10 for better flow
             }}
           >
-            <Home />
-            <About />
-            <Skills />
-            <Experience />
-            <Projects />
-            <ContactForm />
+            <AnimatePresence>
+              {/* Wrapping each section in motion.section for consistent entry animations */}
+              <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+                <Home />
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
+                <About />
+              </motion.div>
+
+              <Experience />
+              <Projects />
+              <ContactForm />
+            </AnimatePresence>
           </Box>
+          
           <Footer />
         </Box>
       </Box>
+
+      {/* ToastContainer sits outside the main flow */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        theme={mode === "dark" ? "dark" : "light"}
+      />
     </ThemeProvider>
   );
 }

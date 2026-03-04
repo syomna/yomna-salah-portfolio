@@ -1,242 +1,163 @@
 import React, { useState } from "react";
-import { Box, Button, Grid, Stack, TextField, Typography } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import UpworkIcon from "@mui/icons-material/Work";
-import { MainColor } from "../utils/constants";
-import ButtonStyle from "./ButtonStyle";
+import { 
+  Box, 
+  Typography, 
+  TextField, 
+  Button, 
+  Grid, 
+  Stack, 
+  IconButton, 
+  useTheme, 
+  Paper 
+} from "@mui/material";
+import { motion } from "framer-motion";
+import { SendRounded, LinkedIn, GitHub, EmailRounded } from "@mui/icons-material";
+import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const ContactForm = () => {
+  const theme = useTheme();
+  const [loading, setLoading] = useState(false);
+  
+  // Form State
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
-  const [errors, setErrors] = useState({
-    name: false,
-    email: false,
-    message: false,
-  });
-
+  // Handle Input Changes
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const validateEmail = (email) => {
-    return /\S+@\S+\.\S+/.test(email);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const nameError = formData.name === "";
-    const emailError = !validateEmail(formData.email);
-    const messageError = formData.message === "";
+    // Simple Validation
+    const nameError = formData.name.trim() === "";
+    const emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+    const messageError = formData.message.trim() === "";
 
-    setErrors({
-      name: nameError,
-      email: emailError,
-      message: messageError,
-    });
-
-    if (!nameError && !emailError && !messageError) {
-      emailjs
-        .send(
-          "service_c69vg1p", // replace with your EmailJS service ID
-          "template_y6mlthg", // replace with your EmailJS template ID
-          formData,
-          "m0NOuyDY7ba6cSqg5" // replace with your EmailJS user ID
-        )
-        .then(
-          (result) => {
-            toast.success("Email successfully sent!");
-            setFormData({ name: "", email: "", message: "" });
-          },
-          (error) => {
-            toast.error("Error sending email. Please try again later.");
-          }
-        );
+    if (nameError || emailError || messageError) {
+      toast.error("Please fill in all required fields correctly.");
+      return;
     }
+
+    setLoading(true);
+
+    // EmailJS Send Logic
+    emailjs
+      .send(
+        "service_18lv4li", 
+        "template_y6mlthg", 
+        {
+          from_name: formData.name,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        "m0NOuyDY7ba6cSqg5"
+      )
+      .then(
+        (result) => {
+          toast.success("Email successfully sent!");
+          setFormData({ name: "", email: "", subject: "", message: "" });
+          setLoading(false);
+        },
+        (error) => {
+          toast.error("Error sending email. Please try again later.");
+          setLoading(false);
+        }
+      );
   };
 
-  const textFieldSx = {
-    "& .MuiOutlinedInput-notchedOutline": {
-      borderColor: errors.name ? "red" : MainColor,
-      borderWidth: "2px",
-    },
-    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-      borderColor: MainColor,
-      borderWidth: "2px",
-    },
-    "&:hover .MuiOutlinedInput-notchedOutline": {
-      borderColor: MainColor,
-      borderWidth: "2px",
-    },
+  const fieldStyles = {
+    "& .MuiInput-root": { mt: 2.5 },
+    "& label": { fontSize: "1rem", fontWeight: 600, color: "text.primary" }
   };
 
   return (
-    <Grid container spacing={4} mt={5} id="Contact">
-      <ToastContainer />
-      <Grid item xs={12} md={6}>
-        <Box
-          component="form"
-          onSubmit={handleSubmit}
-          sx={{
-            maxWidth: "500px",
-            width: "100%",
-            textAlign: "left",
-          }}
-        >
-          <Typography variant="h4" mb={3}>
-            Contact Me
-          </Typography>
-          <Stack spacing={3}>
-            <TextField
-              label="Name"
-              variant="outlined"
-              fullWidth
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              error={errors.name}
-              helperText={errors.name ? "Name is required" : ""}
-              InputLabelProps={{
-                style: { color: errors.name ? "red" : "#fff" },
-              }}
-              InputProps={{
-                style: { color: "#fff" },
-                classes: {
-                  notchedOutline: {
-                    borderColor: errors.name ? "red" : MainColor,
-                  },
-                },
-                sx: textFieldSx,
-              }}
-            />
+    <Box id="contact" sx={{ py: 10 }}>
+      <Grid container spacing={8} alignItems="center">
+        {/* Left Side: Text & Socials */}
+        <Grid item xs={12} md={5}>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <Typography variant="h3" sx={{ mb: 3, fontWeight: 800, fontFamily: "'Courier Prime', monospace" }}>
+              05. Get In Touch
+            </Typography>
+            <Typography variant="body1" sx={{ color: "text.secondary", mb: 4, lineHeight: 1.8 }}>
+              I’m currently open to new opportunities as a <strong>Senior Flutter Developer</strong>. 
+              Whether you have a question or just want to say hi, my inbox is always open!
+            </Typography>
+            <Stack spacing={3}>
+              <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                <EmailRounded color="primary" />
+                <Typography variant="body1">syomna444@gmail.com</Typography>
+              </Box>
+              <Stack direction="row" spacing={2}>
+                <IconButton href="https://linkedin.com/in/yomna-s/" target="_blank" sx={{ border: `1px solid ${theme.palette.divider}` }}><LinkedIn /></IconButton>
+                <IconButton href="https://github.com/syomna" target="_blank" sx={{ border: `1px solid ${theme.palette.divider}` }}><GitHub /></IconButton>
+              </Stack>
+            </Stack>
+          </motion.div>
+        </Grid>
 
-            <TextField
-              label="Email"
-              variant="outlined"
-              fullWidth
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              error={errors.email}
-              helperText={errors.email ? "Enter a valid email" : ""}
-              InputLabelProps={{
-                style: { color: errors.email ? "red" : "#fff" },
-              }}
-              InputProps={{
-                style: { color: "#fff" },
-                notchedOutline: {
-                  borderColor: errors.email ? "red" : MainColor,
-                  borderWidth: "2px",
-                },
-                sx: textFieldSx,
-              }}
-            />
-            <TextField
-              label="Message"
-              variant="outlined"
-              fullWidth
-              multiline
-              rows={4}
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              error={errors.message}
-              helperText={errors.message ? "Message is required" : ""}
-              InputLabelProps={{
-                style: { color: errors.message ? "red" : "#fff" },
-              }}
-              InputProps={{
-                style: { color: "#fff" },
-                notchedOutline: {
-                  borderColor: errors.message ? "red" : MainColor,
-                  borderWidth: "2px",
-                },
-                sx: textFieldSx,
-              }}
-            />
-            <ButtonStyle>
-              <Button type="submit" fullWidth sx={{ color: "white" }}>
-                Send Message
-              </Button>
-            </ButtonStyle>
-          </Stack>
-        </Box>
+        {/* Right Side: Form */}
+        <Grid item xs={12} md={7}>
+          <Paper
+            component={motion.form}
+            onSubmit={handleSubmit}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            sx={{
+              p: { xs: 3, md: 5 },
+              borderRadius: 6,
+              background: theme.palette.mode === "dark" ? "rgba(255,255,255,0.03)" : "rgba(0,0,0,0.02)",
+              border: `1px solid ${theme.palette.divider}`,
+              backdropFilter: "blur(12px)",
+            }}
+          >
+            <Grid container spacing={4}>
+              <Grid item xs={12} sm={6}>
+                <TextField 
+                  fullWidth name="name" label="Name" variant="standard" required 
+                  value={formData.name} onChange={handleChange} InputLabelProps={{ shrink: true }} sx={fieldStyles} 
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField 
+                  fullWidth name="email" label="Email" variant="standard" required type="email"
+                  value={formData.email} onChange={handleChange} InputLabelProps={{ shrink: true }} sx={fieldStyles} 
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField 
+                  fullWidth name="subject" label="Subject" variant="standard" 
+                  value={formData.subject} onChange={handleChange} InputLabelProps={{ shrink: true }} sx={fieldStyles} 
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField 
+                  fullWidth name="message" label="Message" variant="standard" multiline rows={4} required 
+                  value={formData.message} onChange={handleChange} InputLabelProps={{ shrink: true }} sx={fieldStyles} 
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  fullWidth type="submit" variant="contained" size="large" disabled={loading}
+                  endIcon={<SendRounded />} sx={{ mt: 2, py: 1.8, borderRadius: 2, fontWeight: 700 }}
+                >
+                  {loading ? "Sending..." : "Send Message"}
+                </Button>
+              </Grid>
+            </Grid>
+          </Paper>
+        </Grid>
       </Grid>
-
-      <Grid item xs={12} md={6}>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            height: "100%",
-          }}
-        >
-          <Typography variant="h5" mb={2}>
-            Contact Me Via
-          </Typography>
-          <Stack spacing={2} mt={2}>
-            <Button
-              href="https://github.com/syomna"
-              target="_blank"
-              startIcon={<GitHubIcon sx={{ color: "white" }} />}
-              sx={{
-                py: 1,
-                backgroundColor: MainColor,
-                borderRadius: "8px",
-                "&:hover": { backgroundColor: "#5a44e0", cursor: "pointer" },
-                textAlign: "center",
-                width: "200%",
-              }}
-            >
-              <Typography>GitHub</Typography>
-            </Button>
-
-            <Button
-              href="https://www.linkedin.com/in/yomna-s/"
-              target="_blank"
-              startIcon={<LinkedInIcon sx={{ color: "white" }} />}
-              sx={{
-                py: 1,
-                backgroundColor: MainColor,
-                borderRadius: "8px",
-                "&:hover": { backgroundColor: "#5a44e0", cursor: "pointer" },
-                textAlign: "center",
-                width: "200%",
-              }}
-            >
-              <Typography>LinkedIn</Typography>
-            </Button>
-            <Button
-              href="https://www.upwork.com/freelancers/~0155980773e7307264"
-              target="_blank"
-              startIcon={<UpworkIcon sx={{ color: "white" }} />}
-              sx={{
-                py: 1,
-                backgroundColor: MainColor,
-                borderRadius: "8px",
-                "&:hover": { backgroundColor: "#5a44e0", cursor: "pointer" },
-                textAlign: "center",
-                width: "200%",
-              }}
-            >
-              <Typography>Upwork</Typography>
-            </Button>
-          </Stack>
-        </Box>
-      </Grid>
-    </Grid>
+    </Box>
   );
 };
 
