@@ -27,7 +27,7 @@ export const DecorativeCode = () => {
             </Stack>
 
             <Typography variant="body2" sx={{ fontFamily: "inherit", color: "#808080", mb: 1 }}>
-              // Mobile Developer Profile
+                {"// Mobile Developer Profile"}
             </Typography>
             <Box sx={{ display: "flex", gap: 1 }}>
               <Typography variant="body2" sx={{ fontFamily: "inherit", color: "#c678dd" }}>class</Typography>
