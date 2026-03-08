@@ -1,28 +1,46 @@
-import React from "react";
-import { Box, Typography, Container, Divider } from "@mui/material";
-
+import { Box, Typography } from "@mui/material";
+import { SAGE, RULE } from "../utils/tokens";
 const Footer = () => {
-  // Get current year dynamically
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
   return (
-    <Box sx={{ pb: 6, pt: 4, textAlign: "center" }}>
-      <Container maxWidth="lg">
-        <Divider sx={{ mb: 6, opacity: 0.1 }} />
-        <Typography 
-          variant="body2" 
-          sx={{ 
-            fontFamily: "'Courier Prime', monospace", 
-            color: "text.secondary",
-            letterSpacing: 1 
-          }}
-        >
-          DESIGNED & BUILT BY YOMNA SALAH — {currentYear}
-        </Typography>
-        <Typography variant="caption" sx={{ color: "text.disabled", mt: 1, display: "block" }}>
-          Built with React • MUI • Framer Motion
-        </Typography>
-      </Container>
+    <Box
+      component="footer"
+      sx={{
+        px: { xs: 3, md: "60px" },
+        py: "24px",
+        borderTop: `1px solid ${RULE}`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        flexWrap: "wrap",
+        gap: "8px",
+        background: "#1a1916",
+      }}
+    >
+      <Typography sx={{
+        fontFamily: "'DM Mono', monospace",
+        fontSize: "10px",
+        color: "rgba(255,255,255,0.22)",
+        letterSpacing: "0.08em",
+      }}>
+        © {year}{" "}
+        <Box component="em" sx={{ fontStyle: "normal", color: SAGE }}>
+          Yomna Salah
+        </Box>
+      </Typography>
+
+      <Typography sx={{
+        fontFamily: "'DM Mono', monospace",
+        fontSize: "10px",
+        color: "rgba(255,255,255,0.22)",
+        letterSpacing: "0.08em",
+      }}>
+        Built with{" "}
+        <Box component="em" sx={{ fontStyle: "normal", color: SAGE }}>
+          React · MUI · Framer Motion
+        </Box>
+      </Typography>
     </Box>
   );
 };

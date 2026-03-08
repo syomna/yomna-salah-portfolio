@@ -17,6 +17,21 @@ import {
   ArchitectureRounded,
 } from "@mui/icons-material";
 
+
+export // ─── CERTIFICATIONS ──────────────────────────────────────────────────────────
+const CERTS = [
+  {
+    label: "iOS UI Development",
+    sub:   "Meta · Certified",
+    href:  "https://coursera.org/verify/specialization/QNVYNKVZNBWA",
+  },
+  {
+    label: "Front-End Developer",
+    sub:   "Meta · Certified",
+    href:  "https://coursera.org/verify/professional-cert/KCBQGDKJR9X5",
+  },
+  ];
+
 export const skillCategories = [
   {
     title: "Core Development",

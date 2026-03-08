@@ -1,0 +1,9 @@
+export const PAPER   = "#f8f6f1";   // warm white — like a page
+export const INK     = "#181612";   // near-black with warmth
+export const INK_MID = "#4a4540";   // body text
+export const INK_LOW = "#9a9088";   // muted / labels
+export const SAGE    = "#6b7c5e";   // the only accent
+export const SAGE_L  = "#eef1ea";   // sage tint — hover backgrounds
+export const SURFACE = "#f2f0ea";   // alternate section background
+export const DARK_BG = "#1a1916";   // dark panels (contact, footer)
+export const RULE    = "rgba(24,22,18,0.10)"; // hairline dividers

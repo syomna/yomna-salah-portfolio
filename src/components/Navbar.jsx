@@ -1,107 +1,204 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Button, IconButton, Box, useTheme } from "@mui/material";
-import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material";
+import { useState, useEffect } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Box,
+  useTheme,
+} from "@mui/material";
 import { motion } from "framer-motion";
 
-const navItems = ["About", "Expertise", "Experience", "Projects", "Contact"];
+// ─── CONSTANTS ───────────────────────────────────────────────────────────────
+const NAV_ITEMS = ["About", "Skills", "Experience", "Projects", "Contact"];
 
-const Navbar = ({ mode, toggleMode }) => {
+// Design tokens — keep in sync with App.js
+const PAPER  = "#f8f6f1";
+const INK    = "#181612";
+const INK_LOW = "#9a9088";
+const SAGE   = "#6b7c5e";
+const RULE   = "rgba(24,22,18,0.10)";
+
+// ─── NAVBAR ──────────────────────────────────────────────────────────────────
+const Navbar = ({ toggleMode, mode }) => {
   const theme = useTheme();
+  const [raised, setRaised] = useState(false);
 
-  const handleScroll = (id) => {
-    // Logic: If 'Expertise' is clicked, use 'about' as the target ID
-    const targetId = id === "Expertise" ? "about" : id.toLowerCase();
-    const element = document.getElementById(targetId);
+  // Add border only after user scrolls
+  useEffect(() => {
+    const onScroll = () => setRaised(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-    }
+  const handleScroll = (label) => {
+    // Map nav label → section id
+    const idMap = {
+      About:      "about",
+      Skills:     "skills",
+      Experience: "experience",
+      Projects:   "projects",
+      Contact:    "contact",
+    };
+    const el = document.getElementById(idMap[label]);
+    if (!el) return;
+    const offset = 70;
+    const top =
+      el.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: "smooth" });
   };
 
   return (
     <AppBar
       position="fixed"
+      elevation={0}
       sx={{
-        background: mode === "dark" 
-          ? "rgba(10, 10, 12, 0.8)" 
-          : "rgba(255, 255, 255, 0.8)",
-        backdropFilter: "blur(12px)",
-        boxShadow: "none",
-        borderBottom: `1px solid ${theme.palette.divider}`,
+        background: raised
+          ? "rgba(248,246,241,0.96)"
+          : "rgba(248,246,241,0)",
+        backdropFilter: raised ? "blur(20px)" : "none",
+        borderBottom: `1px solid ${raised ? RULE : "transparent"}`,
         backgroundImage: "none",
+        transition: "background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease",
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between", px: { xs: 2, md: 10 } }}>
+      <Toolbar
+        sx={{
+          justifyContent: "space-between",
+          px: { xs: 3, md: "60px" },
+          height: "60px",
+          minHeight: "60px !important",
+        }}
+      >
+
+        {/* ── LOGO ─────────────────────────────────── */}
         <Typography
-          variant="h6"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          component={motion.div}
-          whileHover={{ scale: 1.05 }}
           sx={{
-            fontFamily: "'Courier Prime', monospace",
-            fontWeight: 800,
+            fontFamily: "'Playfair Display', Georgia, serif",
+            fontSize: "15px",
+            fontWeight: 500,
+            fontStyle: "italic",
+            color: INK,
+            letterSpacing: "0.03em",
             cursor: "pointer",
-            color: theme.palette.primary.main,
-            letterSpacing: -1
+            userSelect: "none",
+            "&:hover": { color: SAGE },
+            transition: "color 0.2s",
           }}
         >
-          YS.DEV
+          Yomna Salah
         </Typography>
 
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1, alignItems: "center" }}>
-          {navItems.map((item) => (
-            <Button
+        {/* ── NAV LINKS (desktop) ───────────────────── */}
+        <Box
+          sx={{
+            display: { xs: "none", md: "flex" },
+            gap: "36px",
+            alignItems: "center",
+          }}
+        >
+          {NAV_ITEMS.map((item) => (
+            <Box
               key={item}
-              onClick={() => handleScroll(item)}
-              component={motion.button}
-              whileHover={{ y: -2 }}
-              sx={{
-                color: theme.palette.text.primary,
-                fontSize: "0.85rem",
-                fontWeight: 600,
-                px: 2,
-                "&:hover": { 
-                  background: "transparent", 
-                  color: theme.palette.primary.main 
-                },
-              }}
+              component={motion.div}
+              whileHover={{ y: -1 }}
+              transition={{ duration: 0.15 }}
             >
-              {item}
-            </Button>
+              <Button
+                onClick={() => handleScroll(item)}
+                disableRipple
+                sx={{
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: "10px",
+                  fontWeight: 300,
+                  letterSpacing: "0.14em",
+                  textTransform: "uppercase",
+                  color: INK_LOW,
+                  padding: 0,
+                  minWidth: "auto",
+                  background: "transparent",
+                  "&:hover": {
+                    background: "transparent",
+                    color: INK,
+                  },
+                  transition: "color 0.2s",
+                }}
+              >
+                {item}
+              </Button>
+            </Box>
           ))}
+        </Box>
 
-          <IconButton 
-            onClick={toggleMode} 
-            sx={{ 
-              color: theme.palette.text.primary,
-              ml: 2,
-              border: `1px solid ${theme.palette.divider}`,
-              borderRadius: 2
+        {/* ── AVAILABLE DOT + LABEL ─────────────────── */}
+        <Box
+          sx={{
+            display: { xs: "none", md: "flex" },
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
+          {/* Pulsing dot */}
+          <Box
+            component={motion.div}
+            animate={{
+              boxShadow: [
+                "0 0 0 0 rgba(107,124,94,0.5)",
+                "0 0 0 7px rgba(107,124,94,0)",
+                "0 0 0 0 rgba(107,124,94,0)",
+              ],
             }}
-            component={motion.button}
-            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            sx={{
+              width: "5px",
+              height: "5px",
+              borderRadius: "50%",
+              background: SAGE,
+              flexShrink: 0,
+            }}
+          />
+          <Typography
+            sx={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: "10px",
+              fontWeight: 300,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: SAGE,
+            }}
           >
-            {mode === "dark" ? <LightModeOutlined /> : <DarkModeOutlined />}
-          </IconButton>
+            Available for work
+          </Typography>
         </Box>
 
-        <Box sx={{ display: { xs: "flex", md: "none" } }}>
-          <IconButton 
-            onClick={toggleMode} 
-            sx={{ color: theme.palette.text.primary }}
+        {/* ── MOBILE: just the dot ─────────────────── */}
+        <Box
+          sx={{
+            display: { xs: "flex", md: "none" },
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
+          <Box
+            sx={{
+              width: "6px", height: "6px", borderRadius: "50%",
+              background: SAGE,
+            }}
+          />
+          <Typography
+            sx={{
+              fontFamily: "'DM Mono', monospace",
+              fontSize: "10px",
+              color: SAGE,
+              letterSpacing: "0.1em",
+              textTransform: "uppercase",
+            }}
           >
-            {mode === "dark" ? <LightModeOutlined  /> : <DarkModeOutlined />}
-          </IconButton>
+            Open to work
+          </Typography>
         </Box>
+
       </Toolbar>
     </AppBar>
   );
