@@ -18,6 +18,7 @@ const CtaCell = ({ onContact, onDownload }) => (
   >
     {/* Primary CTA */}
     <Box
+      role="button"
       component={motion.div}
       whileHover={{ x: 4 }}
       transition={{ duration: 0.15 }}
@@ -45,6 +46,7 @@ const CtaCell = ({ onContact, onDownload }) => (
 
     {/* Secondary: Download CV */}
     <Box
+      role="button"
       component={motion.div}
       whileHover={{ x: 2 }}
       transition={{ duration: 0.15 }}
