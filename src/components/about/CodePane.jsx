@@ -8,7 +8,7 @@ const CODE_HTML = `<span style="color:rgba(255,255,255,0.2)">// hi, I'm Yomna ðŸ
 <span style="color:#c084fc">class</span> <span style="color:#fbbf24">YomnaSalah</span> <span style="color:#c084fc">extends</span> <span style="color:#67e8f9">Developer</span>&lt;<span style="color:#67e8f9">Flutter</span>&gt; {
 
   <span style="color:#c084fc">final</span> passion   = <span style="color:#86efac">'clean code that ships'</span>;
-  <span style="color:#c084fc">final</span> approach  = <span style="color:#86efac">'own it like it\'s yours'</span>;
+  <span style="color:#c084fc">final</span> approach  = <span style="color:#86efac">'own it like it's yours'</span>;
   <span style="color:#c084fc">final</span> currently = <span style="color:#86efac">'learning SwiftUI'</span>;
 
   <span style="color:#c084fc">@override</span>
