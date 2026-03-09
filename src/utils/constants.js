@@ -69,31 +69,31 @@ export const certifications = [
 export const experiences = [
   {
     company: "Stone Street Syndicate",
-    role: "Flutter Developer",
+    role: "Flutter & Mobile Engineer",
     period: "08/2025 — Present",
     location: "Remote, United States",
     link: "https://www.stonestreetsyndicate.com/", // Real company link
     description: [
-      "Refactored legacy Flutter codebase, improving performance and maintainability while delivering production features.",
-      "Built 'Casting Calls' feature with Stripe/RevenueCat monetization and automated releases via Codemagic CI/CD.",
-      "Engineered 'Travel Boards' with location-based discovery for booking photographers.",
+      "Sole mobile engineer on a US photography startup, owning end-to-end development across Flutter mobile, web admin panel, and backend integrations, collaborating directly with the founder.",
+      "Built Casting Calls feature with Stripe & RevenueCat monetization and automated releases via Codemagic CI/CD; extended the Flutter web admin panel to display and moderate job posts with an email blast feature for all users.",
+      "Engineered a full push notification system -- order alerts with deep-linking to specific screens, and weekly scheduled notifications to drive user re-engagement.",
+      "Built Travel Boards, a location-based discovery module for photographer bookings using Google Maps & Places API.",
     ],
   },
   {
     company: "Upwork",
-    role: "Mobile & Web Developer",
+    role: "Freelance Flutter & Mobile Engineer",
     period: "08/2021 — 08/2025",
     location: "Remote, International",
     link: "https://www.upwork.com/freelancers/~0155980773e7307264", // Your Upwork profile
     description: [
-      "Architected 15+ Flutter & React.js apps, ensuring quality and scalability for international clients.",
-      "Oversaw full project lifecycle for 10+ clients, integrating cloud APIs for 10K+ users.",
-      "Maintained production apps on both Google Play and App Store.",
+      "Architected and delivered 15+ Flutter & React.js applications for international clients, maintaining code quality, scalability, and on-time delivery.",
+      "Managed full project lifecycles for 10+ clients -- from requirements gathering and UI implementation to cloud API integration and store deployment.",
     ],
   },
   {
     company: "Information Technology Institute (ITI)",
-    role: "Front-end & Cross-Platform Development Trainee",
+    role: "Mobile & Front-End Development Trainee",
     period: "03/2023 — 07/2023",
     location: "Hybrid, Egypt",
     link: "https://iti.gov.eg/", 

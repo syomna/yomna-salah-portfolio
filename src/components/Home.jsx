@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import cv from "../assets/resume/Yomna_Salah_Flutter_Developer.pdf";
+import cv from "../assets/resume/Yomna_Salah_Flutter_Mobile_Engineer_CV.docx";
 
 import { INK_MID, RULE } from "../utils/tokens";
 import { fadeUp } from "../utils/animations";
@@ -15,7 +15,7 @@ import StatCell       from "./common/StatCell";
 const STATS = [
   { number: "3+",  label: "Years building" },
   { number: "15+", label: "Apps shipped"   },
-  { number: "10K", label: "Active users"   },
+  { number: "10+", label: "Happy clients"  },
 ];
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
@@ -28,7 +28,7 @@ const scrollToContact = () => {
 
 const downloadCV = () => {
   const link = document.createElement("a");
-  link.download = "Yomna_Salah_Flutter_Developer.pdf";
+  link.download = "Yomna_Salah_Flutter_Mobile_Engineer_CV.docx";
   link.href = cv;
   link.click();
 };
@@ -89,7 +89,7 @@ const Home = () => (
           color: INK_MID,
           letterSpacing: "0.01em",
         }}>
-          Mobile Developer · Flutter Specialist · 3+ years shipping apps people love.
+          Mobile Engineer · Flutter Specialist · 3+ years shipping apps people love.
         </Typography>
       </Box>
     </Box>

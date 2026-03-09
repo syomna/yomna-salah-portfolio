@@ -32,7 +32,7 @@ const AboutText = () => (
         color: INK_MID, mb: "22px",
       }}>
         I'm <strong style={{ color: INK, fontWeight: 500 }}>Yomna Salah</strong> — a Mobile
-        Developer with over 3 years of experience building production-grade applications from the
+        Engineer with over 3 years of experience building production-grade applications from the
         ground up. I specialise in{" "}
         <strong style={{ color: INK, fontWeight: 500 }}>Flutter</strong> with a non-negotiable
         commitment to{" "}
@@ -49,8 +49,7 @@ const AboutText = () => (
       }}>
         My work spans clients in the{" "}
         <strong style={{ color: INK, fontWeight: 500 }}>US, UAE, France, South Africa, and beyond</strong> — from
-        early-stage startups to apps serving{" "}
-        <strong style={{ color: INK, fontWeight: 500 }}>10,000+ active users</strong>. I own the
+        early-stage startups to fully shipped products on the App Store and Google Play. I own the
         full lifecycle: architecture, CI/CD automation, and App Store deployment. I treat every
         product as if it were my own.
       </Typography>
