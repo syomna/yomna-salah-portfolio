@@ -74,10 +74,10 @@ export const experiences = [
     location: "Remote, United States",
     link: "https://www.stonestreetsyndicate.com/", // Real company link
     description: [
-      "Sole mobile engineer on a US photography startup, owning end-to-end development across Flutter mobile, web admin panel, and backend integrations, collaborating directly with the founder.",
+      "Took over a partially built app at a US photography startup as the sole mobile engineer, driving it to a fully functional production product across Flutter mobile, web admin panel, and backend integrations, collaborating directly with the founder.",
       "Built Casting Calls feature with Stripe & RevenueCat monetization and automated releases via Codemagic CI/CD; extended the Flutter web admin panel to display and moderate job posts with an email blast feature for all users.",
       "Engineered a full push notification system -- order alerts with deep-linking to specific screens, and weekly scheduled notifications to drive user re-engagement.",
-      "Built Travel Boards, a location-based discovery module for photographer bookings using Google Maps & Places API.",
+      "Built Travel Boards, a feature where creatives post their travel availability and clients discover and book them by location, using Google Places API.",
     ],
   },
   {
@@ -157,8 +157,7 @@ export const MobileProjects = [
     img: StoneStreet,
     title: "Stone Street: Book photos",
     subTitle:
-      "A professional photography and booking platform. I led the architectural refactor to improve performance and implemented core new features.",
-    tech: ["flutter", "firebase", "stripe", "cloud-functions", "provider", "revenue-cat", "code-magic"],
+"A photography booking platform live on the App Store and Google Play. I joined when the app was partially built and took it to a fully working product, owning the mobile app, web admin panel, and backend integrations end-to-end.",    tech: ["flutter", "firebase", "stripe", "cloud-functions", "provider", "revenue-cat", "code-magic"],
     playStore: "https://play.google.com/store/apps/details?id=stone.street.app&hl=en",
     appStore: "https://apps.apple.com/us/app/stone-street-book-photos/id6557076325",
   },
@@ -166,7 +165,7 @@ export const MobileProjects = [
     img: PenPoints,
     title: "PenPoints - interactive spelling coach",
     subTitle:
-      "An AI-powered spelling coach for children. Uses Cloud Vision API to analyze handwriting, highlighting errors with confidence scores.",
+      "An AI-powered spelling coach for children that analyzes handwritten words using Cloud Vision API, highlights errors with confidence scores, and lets kids practice independently at their own pace.",
     tech: ["flutter", "firebase", "google-vision-api", "cloud-functions", "open-ai-api", "firebase-analytics", "bloc"],
     playStore: "https://play.google.com/store/apps/details?id=com.mickaelrobin.wright&hl=en&pli=1",
     appStore: "https://apps.apple.com/eg/app/penpoints-fun-spelling-coach/id6737171584",
