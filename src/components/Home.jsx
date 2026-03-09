@@ -89,7 +89,7 @@ const Home = () => (
           color: INK_MID,
           letterSpacing: "0.01em",
         }}>
-          Mobile Engineer · Flutter Specialist · 3+ years shipping apps people love.
+          Mobile Engineer · Flutter Specialist · 4+ years shipping apps people love.
         </Typography>
       </Box>
     </Box>
