@@ -13,7 +13,7 @@ import StatCell       from "./common/StatCell";
 
 // ─── CONSTANTS ───────────────────────────────────────────────────────────────
 const STATS = [
-  { number: "3+",  label: "Years building" },
+  { number: "4+",  label: "Years building" },
   { number: "15+", label: "Apps shipped"   },
   { number: "10+", label: "Happy clients"  },
 ];
