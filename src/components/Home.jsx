@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import cv from "../assets/resume/Yomna_Salah_Flutter_Mobile_Engineer_CV.docx";
+import cv from "../assets/resume/Yomna_Salah_Flutter_Mobile_Engineer_CV.pdf";
 
 import { INK_MID, RULE } from "../utils/tokens";
 import { fadeUp } from "../utils/animations";
@@ -21,14 +21,17 @@ const STATS = [
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
 const scrollToContact = () => {
   const el = document.getElementById("contact");
-  if (!el) return;
-  const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
-  window.scrollTo({ top, behavior: "smooth" });
+    if (!el) return;
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  // const el = document.getElementById("contact");
+  // if (!el) return;
+  // const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
+  // window.scrollTo({ top, behavior: "smooth" });
 };
 
 const downloadCV = () => {
   const link = document.createElement("a");
-  link.download = "Yomna_Salah_Flutter_Mobile_Engineer_CV.docx";
+  link.download = "Yomna_Salah_Flutter_Mobile_Engineer_CV.pdf";
   link.href = cv;
   link.click();
 };
