@@ -69,12 +69,12 @@ export const certifications = [
 export const experiences = [
   {
     company: "Stone Street Syndicate",
-    role: "Flutter & Mobile Engineer",
+    role: "Flutter Developer",
     period: "08/2025 — Present",
     location: "Remote, United States",
     link: "https://www.stonestreetsyndicate.com/", // Real company link
     description: [
-      "Took over a partially built app at a US photography startup as the sole mobile engineer, driving it to a fully functional production product across Flutter mobile, web admin panel, and backend integrations, collaborating directly with the founder.",
+      "Took over a partially built app at a US photography startup as the sole mobile developer, driving it to a fully functional production product across Flutter mobile, web admin panel, and backend integrations, collaborating directly with the founder.",
       "Architected and deployed a multi-stage ‘Casting Calls’ marketplace engine with integrated Stripe payments and RevenueCat subscriptions; extended the Flutter web admin panel to display and moderate job posts with an email blast feature for all users.",
       "Implemented a robust notification architecture with deep-linking and automated re-engagement triggers using Node.js Cloud Functions.",
       "Built Travel Boards, a feature where creatives post their travel availability and clients discover and book them by location, using Google Places API.",
@@ -82,7 +82,7 @@ export const experiences = [
   },
   {
     company: "Upwork",
-    role: "Freelance Flutter & Mobile Engineer",
+    role: "Freelance Flutter Developer",
     period: "08/2021 — 08/2025",
     location: "Remote, International",
     link: "https://www.upwork.com/freelancers/~0155980773e7307264", // Your Upwork profile

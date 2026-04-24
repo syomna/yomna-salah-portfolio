@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import cv from "../assets/resume/Yomna_Salah_Flutter_Mobile_Engineer_CV.pdf";
+import cv from "../assets/resume/Yomna_Salah_Flutter_Mobile_Developer_CV.pdf";
 
 import { INK_MID, RULE } from "../utils/tokens";
 import { fadeUp } from "../utils/animations";
@@ -31,7 +31,7 @@ const scrollToContact = () => {
 
 const downloadCV = () => {
   const link = document.createElement("a");
-  link.download = "Yomna_Salah_Flutter_Mobile_Engineer_CV.pdf";
+  link.download = "Yomna_Salah_Flutter_Mobile_Developer_CV.pdf";
   link.href = cv;
   link.click();
 };
@@ -92,7 +92,7 @@ const Home = () => (
           color: INK_MID,
           letterSpacing: "0.01em",
         }}>
-          Mobile Engineer · Flutter Specialist · 4+ years shipping apps people love.
+          Mobile Developer · Flutter Specialist · 4+ years shipping apps people love.
         </Typography>
       </Box>
     </Box>

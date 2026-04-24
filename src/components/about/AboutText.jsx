@@ -32,7 +32,7 @@ const AboutText = () => (
         color: INK_MID, mb: "22px",
       }}>
         I'm <strong style={{ color: INK, fontWeight: 500 }}>Yomna Salah</strong> — a Mobile
-        Engineer with over 4 years of experience building production-grade applications from the
+        Developer with over 4 years of experience building production-grade applications from the
         ground up. I specialise in{" "}
         <strong style={{ color: INK, fontWeight: 500 }}>Flutter</strong> with a non-negotiable
         commitment to{" "}
