@@ -111,7 +111,7 @@ const Home = () => (
       }}
     >
       {STATS.map((s) => (
-        <StatCell key={s.label} number={s.number} label={s.label} fontSize={STATS.indexOf(s) == 2 ? { xs: "16px", md: "32px" } : { xs: "36px", md: "52px" }} />
+        <StatCell key={s.label} number={s.number} label={s.label} fontSize={STATS.indexOf(s) === 2 ? { xs: "16px", md: "32px" } : { xs: "36px", md: "52px" }} />
       ))}
       <CtaCell onContact={scrollToContact} onDownload={downloadCV} />
     </Box>
