@@ -87,8 +87,9 @@ export const experiences = [
     location: "Remote, International",
     link: "https://www.upwork.com/freelancers/~0155980773e7307264", // Your Upwork profile
     description: [
-      "Architected and delivered 15+ Flutter & React.js applications for international clients, maintaining code quality, scalability, and on-time delivery.",
-      "Managed full project lifecycles for 10+ clients -- from requirements gathering and UI implementation to cloud API integration and store deployment.",
+      "Developed and delivered cross-platform mobile applications for international clients using Flutter and Firebase.",
+"Worked on API integration, authentication, push notifications, payment systems, and app deployment.",
+"Collaborated with clients to translate business requirements into production-ready mobile applications."
     ],
   },
   {
@@ -98,8 +99,8 @@ export const experiences = [
     location: "Hybrid, Egypt",
     link: "https://iti.gov.eg/", 
     description: [
-      "Completed 4-month intensive program in Flutter, React, Angular, and React Native.",
-      "Collaborated in a 5-member team on the IPark graduation project.",
+      "Completed intensive training in Flutter, React, Angular, and mobile application development.",
+      "Collaborated within an Agile team to develop a smart parking graduation project.",
     ],
   },
 ];

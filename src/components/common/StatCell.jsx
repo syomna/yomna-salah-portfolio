@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { INK, INK_LOW, RULE } from "../../utils/tokens";
 
-const StatCell = ({ number, label, sx = {} }) => (
+const StatCell = ({ number, label, sx = {}, fontSize }) => (
   <Box
     sx={{
         py: "28px",
@@ -14,7 +14,7 @@ const StatCell = ({ number, label, sx = {} }) => (
     <Typography
       sx={{
         fontFamily: "'Playfair Display', Georgia, serif",
-        fontSize: { xs: "36px", md: "52px" },
+        fontSize: fontSize ,
         fontWeight: 500,
         color: INK,
         lineHeight: 1,
