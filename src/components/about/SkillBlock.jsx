@@ -1,38 +1,34 @@
-import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { PAPER, INK, INK_LOW, SAGE, RULE } from "../../utils/tokens";
 import { reveal } from "../../utils/animations";
 
 const SkillBlock = ({ category, delay = 0 }) => (
-  <Box component={motion.div} {...reveal(delay)}>
-    <Typography sx={{
-      fontFamily: "'DM Mono', monospace",
-      fontSize: "9px", letterSpacing: "0.22em",
-      textTransform: "uppercase", color: SAGE,
-      mb: "20px", pb: "14px",
-      borderBottom: `1px solid ${RULE}`,
-    }}>
+  <motion.div {...reveal(delay)}>
+    <p className="font-mono text-[9px] tracking-[0.22em] uppercase text-sage mb-5 pb-3.5 border-b rule-b m-0">
       {category.title}
-    </Typography>
+    </p>
 
-    <Box sx={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+    <div className="flex flex-wrap gap-[10px]">
       {category.skills.map((skill) => (
-        <Box
+        <span
           key={skill}
-          sx={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "10px", padding: "6px 14px",
-            border: `1px solid ${RULE}`,
-            color: INK_LOW, letterSpacing: "0.04em",
-            cursor: "default", transition: "all 0.2s",
-            "&:hover": { background: INK, color: PAPER, borderColor: INK },
+          className="font-mono text-[10px] px-[14px] py-[6px] border rule-b text-ink-low tracking-[0.04em] cursor-default"
+          style={{ transition: "all 0.2s" }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = "#181612";
+            e.currentTarget.style.color = "#f8f6f1";
+            e.currentTarget.style.borderColor = "#181612";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.color = "#9a9088";
+            e.currentTarget.style.borderColor = "rgba(24,22,18,0.10)";
           }}
         >
           {skill}
-        </Box>
+        </span>
       ))}
-    </Box>
-  </Box>
+    </div>
+  </motion.div>
 );
 
 export default SkillBlock;

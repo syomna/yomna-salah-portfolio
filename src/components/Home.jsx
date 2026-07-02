@@ -1,8 +1,6 @@
-import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import cv from "../assets/resume/Yomna_Salah_Flutter_Developer_CV.pdf";
 
-import { INK_MID, RULE } from "../utils/tokens";
 import { fadeUp } from "../utils/animations";
 
 import BackgroundYear from "./home/BackgroundYear";
@@ -11,22 +9,16 @@ import CtaCell        from "./home/CtaCell";
 import MonoLabel      from "./common/MonoLabel";
 import StatCell       from "./common/StatCell";
 
-// ─── CONSTANTS ───────────────────────────────────────────────────────────────
 const STATS = [
   { number: "4+",  label: "Years building" },
-  { number: "15+", label: "Projects Delivered"   },
-  { number: "Production Apps", label: "Android & iOS"  },
+  { number: "15+", label: "Projects Delivered" },
+  { number: "Production Apps", label: "Android & iOS & Web" },
 ];
 
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
 const scrollToContact = () => {
   const el = document.getElementById("contact");
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  // const el = document.getElementById("contact");
-  // if (!el) return;
-  // const top = el.getBoundingClientRect().top + window.pageYOffset - 70;
-  // window.scrollTo({ top, behavior: "smooth" });
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
 const downloadCV = () => {
@@ -36,86 +28,47 @@ const downloadCV = () => {
   link.click();
 };
 
-// ─── HOME ────────────────────────────────────────────────────────────────────
 const Home = () => (
-  <Box
+  <section
     id="home"
-    component="section"
-    sx={{
-      minHeight: "100vh",
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      px: { xs: 3, md: "60px" },
-      borderBottom: `1px solid ${RULE}`,
-      position: "relative",
-      overflow: "hidden",
-    }}
+    className="min-h-screen flex flex-col justify-between px-3 md:px-[60px] border-b rule-b relative overflow-hidden"
   >
     <BackgroundYear />
 
-    {/* Location + label */}
-    <Box
-      component={motion.div}
+    <motion.div
       {...fadeUp(0.1)}
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-        pt: "100px",
-        position: "relative",
-        zIndex: 1,
-      }}
+      className="flex justify-between items-start pt-[100px] relative z-[1]"
     >
       <MonoLabel>Giza · Egypt</MonoLabel>
       <MonoLabel>Portfolio — 2026</MonoLabel>
-    </Box>
+    </motion.div>
 
-    {/* Name + descriptor */}
-    <Box
-      component={motion.div}
-      {...fadeUp(0.2)}
-      sx={{ pt: "40px", position: "relative", zIndex: 1 }}
-    >
-      <NameDisplay />
+    <div className="pt-10 relative z-[1]">
+      <motion.div {...fadeUp(0.2)}>
+        <NameDisplay />
+      </motion.div>
 
-      <Box
-        component={motion.div}
+      <motion.div
         {...fadeUp(0.45)}
-        sx={{ mt: "36px", display: "flex", alignItems: "center", gap: "24px" }}
+        className="mt-9 flex items-center gap-6"
       >
-        <Box sx={{ width: "48px", height: "1px", background: RULE, flexShrink: 0 }} />
-        <Typography sx={{
-          fontFamily: "'Lora', Georgia, serif",
-          fontSize: "15px",
-          fontStyle: "italic",
-          color: INK_MID,
-          letterSpacing: "0.01em",
-        }}>
-          Mobile Developer · Building cross-platform applications with Flutter.
-        </Typography>
-      </Box>
-    </Box>
+        <div className="w-12 h-px rule-b shrink-0" />
+        <p className="font-body text-[15px] italic text-ink-mid tracking-[0.01em] m-0">
+          Flutter & React Developer · Building for mobile and web.
+        </p>
+      </motion.div>
+    </div>
 
-    {/* Stats row + CTA */}
-    <Box
-      component={motion.div}
+    <motion.div
       {...fadeUp(0.6)}
-      sx={{
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" },
-        borderTop: `1px solid ${RULE}`,
-        mt: "40px",
-        position: "relative",
-        zIndex: 1,
-      }}
+      className="grid grid-cols-2 md:grid-cols-4 border-t rule-b mt-10 relative z-[1]"
     >
       {STATS.map((s) => (
-        <StatCell key={s.label} number={s.number} label={s.label} fontSize={STATS.indexOf(s) === 2 ? { xs: "16px", md: "32px" } : { xs: "36px", md: "52px" }} />
+        <StatCell key={s.label} number={s.number} label={s.label} />
       ))}
       <CtaCell onContact={scrollToContact} onDownload={downloadCV} />
-    </Box>
-  </Box>
+    </motion.div>
+  </section>
 );
 
 export default Home;

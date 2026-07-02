@@ -1,41 +1,18 @@
-import { Box, Typography } from "@mui/material";
-import { INK, INK_LOW, RULE } from "../../utils/tokens";
+const StatCell = ({ number, label, fontSize = {} }) => {
+  const numSize = number === "Production Apps"
+    ? "text-[16px] md:text-[32px]"
+    : "text-[36px] md:text-[52px]";
 
-const StatCell = ({ number, label, sx = {}, fontSize }) => (
-  <Box
-    sx={{
-        py: "28px",
-        px: { xs: "24px", md: "32px" },
-      pr: "32px",
-      borderRight: `1px solid ${RULE}`,
-      ...sx,
-    }}
-  >
-    <Typography
-      sx={{
-        fontFamily: "'Playfair Display', Georgia, serif",
-        fontSize: fontSize ,
-        fontWeight: 500,
-        color: INK,
-        lineHeight: 1,
-        letterSpacing: "-0.02em",
-      }}
-    >
-      {number}
-    </Typography>
-    <Typography
-      sx={{
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px",
-        letterSpacing: "0.14em",
-        textTransform: "uppercase",
-        color: INK_LOW,
-        mt: "10px",
-      }}
-    >
-      {label}
-    </Typography>
-  </Box>
-);
+  return (
+    <div className="py-7 px-6 md:px-8 border-r rule-b">
+      <p className={`font-heading ${numSize} font-medium text-ink leading-none tracking-[-0.02em]`}>
+        {number}
+      </p>
+      <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-ink-low mt-2.5">
+        {label}
+      </p>
+    </div>
+  );
+};
 
 export default StatCell;

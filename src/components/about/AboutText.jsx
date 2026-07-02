@@ -1,125 +1,56 @@
-import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { INK, INK_MID, SAGE, RULE } from "../../utils/tokens";
 import { reveal } from "../../utils/animations";
 
 const AboutText = () => (
-  <Box>
-    {/* Headline */}
-    <Box component={motion.div} {...reveal(0)}>
-      <Typography
-        sx={{
-          fontFamily: "'Playfair Display', Georgia, serif",
-          fontSize: { xs: "36px", md: "52px" },
-          fontWeight: 500,
-          letterSpacing: "-0.02em",
-          lineHeight: 1.05,
-          color: INK,
-          mb: "40px",
-        }}
-      >
+  <div>
+    <motion.div {...reveal(0)}>
+      <h2 className="font-heading text-[36px] md:text-[52px] font-medium tracking-[-0.02em] leading-[1.05] text-ink mb-10 m-0">
         I build apps
         <br />
         that{" "}
-        <Box
-          component="em"
-          sx={{ fontStyle: "italic", color: SAGE }}
-        >
-          last.
-        </Box>
-      </Typography>
-    </Box>
+        <em className="italic text-sage not-italic">last.</em>
+      </h2>
+    </motion.div>
 
-    {/* Paragraph 1 */}
-    <Box component={motion.div} {...reveal(0.1)}>
-      <Typography
-        sx={{
-          fontFamily: "'Lora', Georgia, serif",
-          fontSize: "16px",
-          lineHeight: 2.05,
-          color: INK_MID,
-          mb: "22px",
-        }}
-      >
+    <motion.div {...reveal(0.1)}>
+      <p className="font-body text-[16px] leading-[2.05] text-ink-mid mb-[22px] m-0">
         I'm{" "}
-        <strong style={{ color: INK, fontWeight: 500 }}>
-          Yomna Salah
-        </strong>{" "}
-        — a Flutter Mobile Developer focused on building
-        production-ready cross-platform applications. I’ve worked on
+        <strong className="text-ink font-medium">Yomna Salah</strong>
+        {" "}— a Flutter & React Developer focused on building
+        production-ready mobile and web applications. I’ve worked on
         freelance and startup projects involving payments,
         notifications, real-time updates, maps, and AI integrations
-        using Flutter and Firebase.
-      </Typography>
-    </Box>
+        using Flutter, React, and Firebase.
+      </p>
+    </motion.div>
 
-    {/* Paragraph 2 */}
-    <Box component={motion.div} {...reveal(0.18)}>
-      <Typography
-        sx={{
-          fontFamily: "'Lora', Georgia, serif",
-          fontSize: "16px",
-          lineHeight: 2.05,
-          color: INK_MID,
-          mb: "36px",
-        }}
-      >
-        My experience includes app deployment, Firebase services,
-        CI/CD workflows, and maintaining mobile applications for
-        Android and iOS. I enjoy building clean, reliable products
+    <motion.div {...reveal(0.18)}>
+      <p className="font-body text-[16px] leading-[2.05] text-ink-mid mb-9 m-0">
+        My experience includes mobile and web app deployment, Firebase services,
+        CI/CD workflows, and maintaining production applications for
+        Android, iOS, and the web. I enjoy building clean, reliable products
         and collaborating closely with teams and clients.
-      </Typography>
-    </Box>
+      </p>
+    </motion.div>
 
-    {/* Now → strip */}
-    <Box
-      component={motion.div}
+    <motion.div
       {...reveal(0.25)}
-      sx={{
-        borderTop: `1px solid ${RULE}`,
-        borderBottom: `1px solid ${RULE}`,
-        py: "22px",
-        display: "flex",
-        gap: "20px",
-        alignItems: "baseline",
-      }}
+      className="border-y rule-b py-[22px] flex gap-5 items-baseline"
     >
-      <Typography
-        sx={{
-          fontFamily: "'DM Mono', monospace",
-          fontSize: "9px",
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          color: SAGE,
-          flexShrink: 0,
-        }}
-      >
+      <span className="font-mono text-[9px] tracking-[0.18em] uppercase text-sage shrink-0">
         Now →
-      </Typography>
+      </span>
 
-      <Typography
-        sx={{
-          fontFamily: "'Lora', Georgia, serif",
-          fontStyle: "italic",
-          fontSize: "15px",
-          color: INK_MID,
-          lineHeight: 1.6,
-        }}
-      >
-        Currently exploring native iOS development with{" "}
-        <strong
-          style={{
-            fontStyle: "normal",
-            color: INK,
-            fontWeight: 500,
-          }}
-        >
-          SwiftUI
-        </strong>
-        .
-      </Typography>
-    </Box>
-  </Box>
+      <p className="font-body italic text-[15px] text-ink-mid leading-[1.6] m-0">
+        Building with{" "}
+        <strong className="not-italic text-ink font-medium">Flutter</strong>
+        ,{" "}
+        <strong className="not-italic text-ink font-medium">React</strong>
+        , and{" "}
+        <strong className="not-italic text-ink font-medium">TypeScript</strong>.
+      </p>
+    </motion.div>
+  </div>
 );
 
 export default AboutText;

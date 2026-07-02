@@ -1,38 +1,28 @@
-import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import { SAGE, SAGE_L, RULE } from "../../utils/tokens";
 import { reveal } from "../../utils/animations";
 import ExpMeta    from "./ExpMeta";
 import ExpBullets from "./ExpBullets";
 
 const ExperienceRow = ({ exp, delay = 0 }) => (
-  <Box
-    component={motion.div}
+  <motion.div
     {...reveal(delay)}
-    sx={{
-      display: "grid",
-      gridTemplateColumns: { xs: "1fr", md: "240px 1fr" },
-      borderTop: `1px solid ${RULE}`,
-      py: { xs: "32px", md: "48px" },
-      px: { xs: "24px", md: 0 },
-      position: "relative",
-      cursor: "default",
-      transition: "background 0.25s",
-      "&:last-child": { borderBottom: `1px solid ${RULE}` },
-      "&:hover": { background: SAGE_L },
-      "&::before": {
-        content: '""',
-        position: "absolute",
-        left: { xs: 0, md: "-60px" },
-        top: 0, width: "3px", height: "100%",
-        background: SAGE,
-        transform: "scaleY(0)",
-        transformOrigin: "top",
-        transition: "transform 0.4s ease",
-      },
-      "&:hover::before": { transform: "scaleY(1)" },
+    className="grid grid-cols-1 md:grid-cols-[240px_1fr] border-t rule-b py-8 md:py-12 px-6 md:px-0 relative cursor-default group"
+    style={{ transition: "background 0.25s" }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.background = "#eef1ea";
+      const bar = e.currentTarget.querySelector(".exp-bar");
+      if (bar) bar.style.transform = "scaleY(1)";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.background = "transparent";
+      const bar = e.currentTarget.querySelector(".exp-bar");
+      if (bar) bar.style.transform = "scaleY(0)";
     }}
   >
+    <div
+      className="exp-bar absolute left-0 md:left-[-60px] top-0 w-[3px] h-full bg-sage origin-top"
+      style={{ transition: "transform 0.4s ease" }}
+    />
     <ExpMeta
       period={exp.period}
       location={exp.location}
@@ -43,7 +33,7 @@ const ExperienceRow = ({ exp, delay = 0 }) => (
       role={exp.role}
       description={exp.description}
     />
-  </Box>
+  </motion.div>
 );
 
 export default ExperienceRow;

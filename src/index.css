@@ -1,34 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
-body {
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Courier Prime', monospace, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  background-color: #000;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: #f8f6f1;
+    overflow-x: hidden;
+    max-width: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection { background: #6b7c5e; color: #fff; }
+  ::-webkit-scrollbar { width: 1px; }
+  ::-webkit-scrollbar-thumb { background: #9a9088; }
 }
 
+@layer utilities {
+  .rule-b { border-color: rgba(24, 22, 18, 0.10); }
+}
 
 @keyframes shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 50% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 50% 50%; }
+  100% { background-position: 0% 50%; }
 }
-
-a {
-  text-decoration: none;
-  
-}
-a:visited {
-  color: inherit;
-}
-

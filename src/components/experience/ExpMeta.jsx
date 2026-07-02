@@ -1,59 +1,39 @@
-import { Box, Typography } from "@mui/material";
-import { INK, INK_LOW, SAGE, RULE } from "../../utils/tokens";
-
 const ExpMeta = ({ period, location, company, link }) => (
-  <Box
-    sx={{
-      pr: { md: "40px" },
-      mb: { xs: "16px", md: 0 },
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-      borderRight: { md: `1px solid ${RULE}` },
-    }}
-  >
-    {/* Period + location */}
-    <Box>
-      <Typography sx={{
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "11px", color: SAGE,
-        lineHeight: 1.9, letterSpacing: "0.03em",
-      }}>
+  <div className="pr-0 md:pr-10 mb-4 md:mb-0 flex flex-col justify-between border-r-0 md:border-r rule-b">
+    <div>
+      <p className="font-mono text-[11px] text-sage leading-[1.9] tracking-[0.03em] m-0">
         {period}
-      </Typography>
-      <Typography sx={{
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px", letterSpacing: "0.1em",
-        textTransform: "uppercase", color: INK_LOW, mt: "4px",
-      }}>
+      </p>
+      <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-ink-low mt-1 m-0">
         {location}
-      </Typography>
-    </Box>
+      </p>
+    </div>
 
-    {/* Company badge — link if href, plain div otherwise */}
-    <Box
-      component={link ? "a" : "div"}
-      href={link || undefined}
-      target={link ? "_blank" : undefined}
-      rel={link ? "noopener noreferrer" : undefined}
-      sx={{
-        mt: "20px",
-        display: "inline-block",
-        width: "fit-content",
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px", letterSpacing: "0.14em",
-        textTransform: "uppercase", color: INK,
-        textDecoration: "none",
-        borderBottom: `1px solid ${INK}`,
-        paddingBottom: "2px",
-        transition: "color 0.2s, border-color 0.2s",
-        ...(link && { "&:hover": { color: SAGE, borderColor: SAGE } }),
-      }}
-    >
-      {company}
-      {link && <Box component="span" sx={{ ml: "4px", opacity: 0.5 }}>↗</Box>}
-    </Box>
-  </Box>
+    {link ? (
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-block w-fit font-mono text-[10px] tracking-[0.14em] uppercase text-ink no-underline border-b border-ink pb-[2px]"
+        style={{ transition: "color 0.2s, border-color 0.2s" }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.color = "#6b7c5e";
+          e.currentTarget.style.borderColor = "#6b7c5e";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.color = "#181612";
+          e.currentTarget.style.borderColor = "#181612";
+        }}
+      >
+        {company}
+        <span className="ml-1 opacity-50">↗</span>
+      </a>
+    ) : (
+      <span className="mt-5 inline-block w-fit font-mono text-[10px] tracking-[0.14em] uppercase text-ink border-b border-ink pb-[2px]">
+        {company}
+      </span>
+    )}
+  </div>
 );
 
 export default ExpMeta;

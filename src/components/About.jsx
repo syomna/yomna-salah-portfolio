@@ -1,93 +1,56 @@
-import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import { skillCategories } from "../utils/constants";
-import { INK_MID, RULE, SURFACE } from "../utils/tokens";
+import { skillCategories, CERTS } from "../utils/constants";
 import { reveal } from "../utils/animations";
 import SectionLabel from "./common/SectionLabel";
 import CertRow      from "./common/CertRow";
 import AboutText    from "./about/AboutText";
 import CodePane     from "./about/CodePane";
 import SkillBlock   from "./about/SkillBlock";
-import { CERTS } from "../utils/constants";
 
 const About = () => (
   <>
-    {/* ── About ───────────────────────────────────── */}
-    <Box
+    <section
       id="about"
-      component="section"
-      sx={{
-        px: { xs: "24px", md: "60px" },
-        pt: { xs: "80px", md: "120px" },
-        pb: { xs: "80px", md: "120px" },
-        borderBottom: `1px solid ${RULE}`,
-      }}
+      className="px-6 md:px-[60px] pt-20 md:pt-[120px] pb-20 md:pb-[120px] border-b rule-b"
     >
-      <SectionLabel number="01" title="About" sx={{ mb: "64px" }} />
+      <SectionLabel number="01" title="About" />
 
-      <Box sx={{
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-        gap: { xs: "64px", md: "120px" },
-        alignItems: "start",
-      }}>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-[120px] items-start">
         <AboutText />
 
-        <Box
-          component={motion.div}
-          {...reveal(0.12)}
-          sx={{ display: "flex", flexDirection: "column", gap: "24px" }}
-        >
-          <CodePane />
+        <div className="flex flex-col gap-6">
+          <motion.div {...reveal(0.12)}>
+            <CodePane />
+          </motion.div>
           {CERTS.map((c) => (
-            <CertRow key={c.label} {...c} />
+            <motion.div key={c.label} {...reveal(0.15)}>
+              <CertRow {...c} />
+            </motion.div>
           ))}
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </section>
 
-    {/* ── Skills ──────────────────────────────────── */}
-    <Box
+    <section
       id="skills"
-      component="section"
-      sx={{
-        px: { xs: "24px", md: "60px" },
-        pt: { xs: "80px", md: "120px" },
-        pb: { xs: "80px", md: "120px" },
-        background: SURFACE,
-        borderBottom: `1px solid ${RULE}`,
-      }}
+      className="px-6 md:px-[60px] pt-20 md:pt-[120px] pb-20 md:pb-[120px] border-b rule-b bg-surface"
     >
-      <SectionLabel number="02" title="Skills & Stack" sx={{ mb: "64px" }} />
+      <SectionLabel number="02" title="Skills & Stack" />
 
-      <Box sx={{
-        display: "grid",
-        gridTemplateColumns: { xs: "1fr", md: "240px 1fr" },
-        gap: { xs: "48px", md: "100px" },
-        alignItems: "start",
-      }}>
-        <Box component={motion.div} {...reveal(0)}>
-          <Typography sx={{
-            fontFamily: "'Lora', Georgia, serif",
-            fontStyle: "italic",
-            fontSize: "17px", lineHeight: 1.9,
-            color: INK_MID,
-          }}>
+      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-12 md:gap-[100px] items-start">
+        <motion.div {...reveal(0)}>
+          <p className="font-body italic text-[17px] leading-[1.9] text-ink-mid m-0">
             Every tool chosen with intention.
-          </Typography>
-        </Box>
+          </p>
+        </motion.div>
 
-        <Box sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-          gap: { xs: "48px", md: "56px 80px" },
-        }}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-14 md:gap-x-20">
           {skillCategories.map((cat, i) => (
             <SkillBlock key={cat.title} category={cat} delay={i * 0.08} />
           ))}
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </section>
   </>
 );
 

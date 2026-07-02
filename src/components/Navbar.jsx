@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
-import { AppBar, Toolbar, Typography, Box } from "@mui/material";
 import { motion } from "framer-motion";
-import { INK, INK_LOW, SAGE, RULE } from "../utils/tokens";
 
 const NAV_ITEMS = ["About", "Skills", "Experience", "Projects", "Contact"];
 
@@ -16,11 +14,11 @@ const Navbar = () => {
 
   const handleScroll = (label) => {
     const idMap = {
-      About:      "about",
-      Skills:     "skills",
+      About: "about",
+      Skills: "skills",
       Experience: "experience",
-      Projects:   "projects",
-      Contact:    "contact",
+      Projects: "projects",
+      Contact: "contact",
     };
     const el = document.getElementById(idMap[label]);
     if (!el) return;
@@ -28,70 +26,47 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar
-      position="fixed"
-      elevation={0}
-      sx={{
+    <header
+      className="fixed top-0 left-0 right-0 z-50"
+      style={{
         background: raised ? "rgba(248,246,241,0.96)" : "rgba(248,246,241,0)",
         backdropFilter: raised ? "blur(20px)" : "none",
-        borderBottom: `1px solid ${raised ? RULE : "transparent"}`,
-        backgroundImage: "none",
+        borderBottom: `1px solid ${raised ? "rgba(24,22,18,0.10)" : "transparent"}`,
         transition: "background 0.4s ease, border-color 0.4s ease",
-        pointerEvents: "none",  // let clicks pass through the bar itself
+        pointerEvents: "none",
       }}
     >
-      <Toolbar
-        sx={{
-          justifyContent: "space-between",
-          px: { xs: 3, md: "60px" },
-          height: "60px",
-          minHeight: "60px !important",
-          pointerEvents: "auto", // re-enable only on the toolbar content
-        }}
+      <div
+        className="flex items-center justify-between h-[60px] px-3 md:px-[60px]"
+        style={{ pointerEvents: "auto" }}
       >
-        {/* ── Logo ─────────────────────────────── */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: "15px", fontWeight: 500, fontStyle: "italic",
-            color: INK, letterSpacing: "0.03em",
-            background: "none", border: "none",
-            cursor: "pointer", userSelect: "none",
-            transition: "color 0.2s", padding: 0,
-          }}
-          onMouseEnter={e => e.target.style.color = SAGE}
-          onMouseLeave={e => e.target.style.color = INK}
+          className="font-heading text-[15px] font-medium italic tracking-[0.03em] text-ink bg-none border-none cursor-pointer select-none p-0"
+          style={{ transition: "color 0.2s" }}
+          onMouseEnter={(e) => e.target.style.color = "#6b7c5e"}
+          onMouseLeave={(e) => e.target.style.color = "#181612"}
         >
           Yomna Salah
         </button>
 
-        {/* ── Nav links (desktop) ───────────────── */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: "36px", alignItems: "center" }}>
+        <nav className="hidden md:flex gap-9 items-center">
           {NAV_ITEMS.map((item) => (
             <button
               key={item}
               onClick={() => handleScroll(item)}
-              style={{
-                fontFamily: "'DM Mono', monospace",
-                fontSize: "10px", fontWeight: 300,
-                letterSpacing: "0.14em", textTransform: "uppercase",
-                color: INK_LOW, background: "none",
-                border: "none", padding: 0,
-                cursor: "pointer", transition: "color 0.2s",
-              }}
-              onMouseEnter={e => e.target.style.color = INK}
-              onMouseLeave={e => e.target.style.color = INK_LOW}
+              className="font-mono text-[10px] font-light tracking-[0.14em] uppercase text-ink-low bg-none border-none p-0 cursor-pointer"
+              style={{ transition: "color 0.2s" }}
+              onMouseEnter={(e) => e.target.style.color = "#181612"}
+              onMouseLeave={(e) => e.target.style.color = "#9a9088"}
             >
               {item}
             </button>
           ))}
-        </Box>
+        </nav>
 
-        {/* ── Available dot (desktop) ───────────── */}
-        <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: "8px" }}>
-          <Box
-            component={motion.div}
+        <div className="hidden md:flex items-center gap-2">
+          <motion.div
             animate={{
               boxShadow: [
                 "0 0 0 0 rgba(107,124,94,0.5)",
@@ -100,30 +75,21 @@ const Navbar = () => {
               ],
             }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            sx={{ width: "5px", height: "5px", borderRadius: "50%", background: SAGE, flexShrink: 0 }}
+            className="w-[5px] h-[5px] rounded-full bg-sage shrink-0"
           />
-          <Typography sx={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "10px", fontWeight: 300,
-            letterSpacing: "0.14em", textTransform: "uppercase", color: SAGE,
-          }}>
+          <span className="font-mono text-[10px] font-light tracking-[0.14em] uppercase text-sage">
             Available for work
-          </Typography>
-        </Box>
+          </span>
+        </div>
 
-        {/* ── Mobile: dot + label ───────────────── */}
-        <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center", gap: "8px" }}>
-          <Box sx={{ width: "6px", height: "6px", borderRadius: "50%", background: SAGE }} />
-          <Typography sx={{
-            fontFamily: "'DM Mono', monospace",
-            fontSize: "10px", color: SAGE,
-            letterSpacing: "0.1em", textTransform: "uppercase",
-          }}>
+        <div className="flex md:hidden items-center gap-2">
+          <div className="w-[6px] h-[6px] rounded-full bg-sage" />
+          <span className="font-mono text-[10px] text-sage tracking-[0.1em] uppercase">
             Open to work
-          </Typography>
-        </Box>
-      </Toolbar>
-    </AppBar>
+          </span>
+        </div>
+      </div>
+    </header>
   );
 };
 

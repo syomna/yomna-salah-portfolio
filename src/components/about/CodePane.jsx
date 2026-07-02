@@ -1,58 +1,33 @@
-import { Box, Typography } from "@mui/material";
-import { INK } from "../../utils/tokens";
-
 const DOTS = ["#ff5f57", "#febc2e", "#28c840"];
 
 const CODE_HTML = `<span style="color:rgba(255,255,255,0.2)">// hi, I'm Yomna 👋</span>
 
-<span style="color:#c084fc">class</span> <span style="color:#fbbf24">YomnaSalah</span> <span style="color:#c084fc">extends</span> <span style="color:#67e8f9">FlutterDeveloper</span> {
+<span style="color:#c084fc">const</span> <span style="color:#fbbf24">yomna</span> <span style="color:#c084fc">=</span> <span style="color:#67e8f9">{</span>
 
-  <span style="color:#c084fc">final</span> focus      = <span style="color:#86efac">'production mobile apps'</span>;
-  <span style="color:#c084fc">final</span> stack      = <span style="color:#86efac">'Flutter · Firebase · APIs'</span>;
-  <span style="color:#c084fc">final</span> interested = <span style="color:#86efac">'SwiftUI & native iOS'</span>;
+  <span style="color:#fbbf24">focus</span><span style="color:#c084fc">:</span>     <span style="color:#86efac">'production apps · mobile & web'</span>,
+  <span style="color:#fbbf24">stack</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'Flutter · React'</span>,
+  <span style="color:#fbbf24">tools</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'Firebase · Node.js · Tailwind'</span>,
 
-  <span style="color:#c084fc">@override</span>
-  <span style="color:#67e8f9">Widget</span> <span style="color:#67e8f9">build</span>(BuildContext context) {
-    <span style="color:#c084fc">return</span> <span style="color:#fbbf24">ProductionApp</span>();
-  }
-}`;
+  <span style="color:#fbbf24">build</span><span style="color:#c084fc">:</span> <span style="color:#67e8f9">()</span> <span style="color:#c084fc">=></span> <span style="color:#fbbf24">ProductionApp</span>(),
+
+<span style="color:#67e8f9">}</span>`;
 
 const CodePane = () => (
-  <Box sx={{ background: INK, overflow: "hidden" }}>
-    {/* Window chrome */}
-    <Box sx={{
-      px: "16px", py: "10px",
-      borderBottom: "1px solid rgba(255,255,255,0.06)",
-      display: "flex", alignItems: "center", gap: "6px",
-    }}>
+  <div className="bg-ink overflow-hidden">
+    <div className="px-4 py-[10px] border-b border-white/5 flex items-center gap-[6px]">
       {DOTS.map((c) => (
-        <Box key={c} sx={{ width: 9, height: 9, borderRadius: "50%", background: c }} />
+        <div key={c} style={{ width: 9, height: 9, borderRadius: "50%", background: c }} />
       ))}
-      <Typography sx={{
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px",
-        color: "rgba(255,255,255,0.2)",
-        ml: "8px", letterSpacing: "0.04em",
-      }}>
-        yomna.dart
-      </Typography>
-    </Box>
+      <span className="font-mono text-[10px] text-white/20 ml-2 tracking-[0.04em]">
+        yomna.js
+      </span>
+    </div>
 
-    {/* Code body */}
-    <Box
-      component="pre"
-      sx={{
-        px: "18px", py: "22px",
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "12px", lineHeight: 2.0,
-        color: "rgba(255,255,255,0.68)",
-        whiteSpace: "pre",
-        overflowX: "auto",
-        m: 0,
-      }}
+    <pre
+      className="px-[18px] py-[22px] font-mono text-[12px] leading-[2] text-white/70 whitespace-pre overflow-x-auto m-0"
       dangerouslySetInnerHTML={{ __html: CODE_HTML }}
     />
-  </Box>
+  </div>
 );
 
 export default CodePane;

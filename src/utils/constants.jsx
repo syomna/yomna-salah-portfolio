@@ -10,12 +10,7 @@ import Azkari from "../assets/projects/Azkari.jpeg";
 import GhanaFootball from "../assets/projects/GhanaFootball.jpeg";
 import ShopManagment from "../assets/projects/ShopManagment.jpeg";
 import BostaClone from "../assets/projects/BostaClone.jpeg";
-import { 
-  CodeRounded, 
-  TerminalRounded, 
-  CloudQueueRounded, 
-  ArchitectureRounded,
-} from "@mui/icons-material";
+import { Code, Terminal, Cloud, Box } from "lucide-react";
 
 
 export // ─── CERTIFICATIONS ──────────────────────────────────────────────────────────
@@ -35,22 +30,22 @@ const CERTS = [
 export const skillCategories = [
   {
     title: "Core Development",
-    icon: <CodeRounded />,
-    skills: ["Flutter", "Dart", "SwiftUI (Native iOS)", "JavaScript", "React.js", "Node.js"],
+    icon: <Code size={16} />,
+    skills: ["Flutter", "React.js", "TypeScript", "JavaScript", "Dart", "SwiftUI (Native iOS)", "Node.js"],
   },
   {
     title: "Architecture & Tools",
-    icon: <ArchitectureRounded />,
+    icon: <Box size={16} />,
     skills: ["Clean Architecture", "MVVM", "BLoC", "Provider", "SOLID Principles", "Dependency Injection", "Unit Testing"],
   },
   {
     title: "Cloud & Backend",
-    icon: <CloudQueueRounded />,
+    icon: <Cloud size={16} />,
     skills: ["API Integration","Firebase", "Firestore", "Google Cloud APIs", "OpenAI / Gemini", "Stripe", "RevenueCat"],
   },
   {
     title: "DevOps & Workflow",
-    icon: <TerminalRounded />,
+    icon: <Terminal size={16} />,
     skills: ["Git/GitHub", "Codemagic CI/CD", "App Store Deployment", "Jira", "Figma"],
   },
 ];
@@ -69,12 +64,12 @@ export const certifications = [
 export const experiences = [
   {
     company: "Stone Street Syndicate",
-    role: "Flutter Developer",
+    role: "Mobile App Developer",
     period: "08/2025 — Present",
     location: "Remote, United States",
     link: "https://www.stonestreetsyndicate.com/", // Real company link
     description: [
-      "Took over a partially built app at a US photography startup as the sole mobile developer, driving it to a fully functional production product across Flutter mobile, web admin panel, and backend integrations, collaborating directly with the founder.",
+      "Took over a partially built app at a US photography startup as the sole developer, driving it to a fully functional production product across Flutter mobile, React web admin panel, and backend integrations, collaborating directly with the founder.",
       "Architected and deployed a multi-stage ‘Casting Calls’ marketplace engine with integrated Stripe payments and RevenueCat subscriptions; extended the Flutter web admin panel to display and moderate job posts with an email blast feature for all users.",
       "Implemented a robust notification architecture with deep-linking and automated re-engagement triggers using Node.js Cloud Functions.",
       "Built Travel Boards, a feature where creatives post their travel availability and clients discover and book them by location, using Google Places API.",
@@ -82,12 +77,12 @@ export const experiences = [
   },
   {
     company: "Upwork",
-    role: "Freelance Flutter Developer",
+    role: "Freelance Mobile & Web Developer",
     period: "08/2021 — 08/2025",
     location: "Remote, International",
     link: "https://www.upwork.com/freelancers/~0155980773e7307264", // Your Upwork profile
     description: [
-      "Developed and delivered cross-platform mobile applications for international clients using Flutter and Firebase.",
+      "Developed and delivered cross-platform mobile applications for international clients using Flutter, React, and Firebase.",
 "Worked on API integration, authentication, push notifications, payment systems, and app deployment.",
 "Collaborated with clients to translate business requirements into production-ready mobile applications."
     ],

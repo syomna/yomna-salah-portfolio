@@ -1,18 +1,7 @@
-import { Typography } from "@mui/material";
-import { INK_LOW } from "../../utils/tokens";
-const MonoLabel = ({ children, color = INK_LOW, sx = {} }) => (
-  <Typography
-    sx={{
-      fontFamily: "'DM Mono', monospace",
-      fontSize: "10px",
-      letterSpacing: "0.2em",
-      textTransform: "uppercase",
-      color,
-      ...sx,
-    }}
-  >
+const MonoLabel = ({ children, className = "" }) => (
+  <span className={`font-mono text-[10px] tracking-[0.2em] uppercase text-ink-low ${className}`}>
     {children}
-  </Typography>
+  </span>
 );
 
 export default MonoLabel;

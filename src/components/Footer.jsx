@@ -1,47 +1,20 @@
-import { Box, Typography } from "@mui/material";
-import { SAGE, RULE } from "../utils/tokens";
 const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <Box
-      component="footer"
-      sx={{
-        px: { xs: 3, md: "60px" },
-        py: "24px",
-        borderTop: `1px solid ${RULE}`,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        flexWrap: "wrap",
-        gap: "8px",
-        background: "#1a1916",
-      }}
-    >
-      <Typography sx={{
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px",
-        color: "rgba(255,255,255,0.22)",
-        letterSpacing: "0.08em",
-      }}>
+    <footer className="px-3 md:px-[60px] py-6 border-t rule-b flex items-center justify-between flex-wrap gap-2 bg-dark-bg">
+      <p className="font-mono text-[10px] text-white/25 tracking-[0.08em] m-0">
         © {year}{" "}
-        <Box component="em" sx={{ fontStyle: "normal", color: SAGE }}>
-          Yomna Salah
-        </Box>
-      </Typography>
+        <em className="not-italic text-sage">Yomna Salah</em>
+      </p>
 
-      <Typography sx={{
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px",
-        color: "rgba(255,255,255,0.22)",
-        letterSpacing: "0.08em",
-      }}>
+      <p className="font-mono text-[10px] text-white/25 tracking-[0.08em] m-0">
         Built with{" "}
-        <Box component="em" sx={{ fontStyle: "normal", color: SAGE }}>
-          React · MUI · Framer Motion
-        </Box>
-      </Typography>
-    </Box>
+        <em className="not-italic text-sage">
+          React · Tailwind · Framer Motion
+        </em>
+      </p>
+    </footer>
   );
 };
 

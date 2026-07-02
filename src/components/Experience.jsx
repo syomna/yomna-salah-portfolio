@@ -1,28 +1,20 @@
-import { Box } from "@mui/material";
 import { experiences } from "../utils/constants";
-import { RULE } from "../utils/tokens";
 import SectionLabel  from "./common/SectionLabel";
 import ExperienceRow from "./experience/ExperienceRow";
 
 const Experience = () => (
-  <Box
+  <section
     id="experience"
-    component="section"
-    sx={{
-      px: { xs: "24px", md: "60px" },
-      pt: { xs: "80px", md: "120px" },
-      pb: { xs: "80px", md: "120px" },
-      borderBottom: `1px solid ${RULE}`,
-    }}
+    className="px-6 md:px-[60px] pt-20 md:pt-[120px] pb-20 md:pb-[120px] border-b rule-b"
   >
-    <SectionLabel number="03" title="Experience" sx={{ mb: "64px" }} />
+    <SectionLabel number="03" title="Experience" />
 
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <div className="flex flex-col">
       {experiences.map((exp, i) => (
         <ExperienceRow key={exp.company} exp={exp} delay={i * 0.1} />
       ))}
-    </Box>
-  </Box>
+    </div>
+  </section>
 );
 
 export default Experience;

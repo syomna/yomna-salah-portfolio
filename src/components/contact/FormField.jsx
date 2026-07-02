@@ -1,53 +1,33 @@
-import { Box, Typography } from "@mui/material";
-import { INK, INK_LOW, RULE, SAGE_L } from "../../utils/tokens";
+const FormField = ({ label, name, type = "text", value, onChange, placeholder, multiline, borderRight }) => {
+  const Tag = multiline ? "textarea" : "input";
 
-const FormField = ({ label, name, type = "text", value, onChange, placeholder, multiline, borderRight }) => (
-  <Box
-    sx={{
-      position: "relative",
-      borderRight: borderRight ? `1px solid ${RULE}` : "none",
-      transition: "background 0.2s",
-      "&:focus-within": { background: SAGE_L },
-    }}
-  >
-    <Typography
-      component="label"
-      htmlFor={name}
-      sx={{
-        display: "block",
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "9px", letterSpacing: "0.18em",
-        textTransform: "uppercase", color: INK_LOW,
-        padding: "14px 18px 0",
+  return (
+    <div
+      className="relative"
+      style={{
+        borderRight: borderRight ? "1px solid rgba(24,22,18,0.10)" : "none",
+        transition: "background 0.2s",
       }}
+      onFocus={() => {}}
     >
-      {label}
-    </Typography>
-    <Box
-      component={multiline ? "textarea" : "input"}
-      id={name}
-      name={name}
-      type={type}
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-      rows={multiline ? 4 : undefined}
-      sx={{
-        display: "block",
-        width: "100%",
-        background: "transparent",
-        border: "none",
-        outline: "none",
-        fontFamily: "'Lora', Georgia, serif",
-        fontSize: "14px",
-        color: INK,
-        padding: "5px 18px 14px",
-        resize: "none",
-        fontStyle: "italic",
-        "&::placeholder": { color: INK_LOW, fontStyle: "italic" },
-      }}
-    />
-  </Box>
-);
+      <label
+        htmlFor={name}
+        className="block font-mono text-[9px] tracking-[0.18em] uppercase text-ink-low pt-[14px] px-[18px]"
+      >
+        {label}
+      </label>
+      <Tag
+        id={name}
+        name={name}
+        type={multiline ? undefined : type}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        rows={multiline ? 4 : undefined}
+        className="block w-full bg-transparent border-none outline-none font-body text-[14px] text-ink px-[18px] pb-[14px] resize-none italic placeholder:text-ink-low placeholder:italic"
+      />
+    </div>
+  );
+};
 
 export default FormField;

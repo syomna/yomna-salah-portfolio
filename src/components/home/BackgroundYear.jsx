@@ -1,26 +1,13 @@
-import { Typography } from "@mui/material";
-
 const BackgroundYear = ({ year = new Date().getFullYear() }) => (
-  <Typography
+  <span
     aria-hidden
-    sx={{
-      position: "absolute",
-      fontFamily: "'Playfair Display', serif",
-      fontSize: { xs: "180px", md: "420px" },
-      fontWeight: 700,
-      color: "transparent",
+    className="absolute font-heading text-[180px] md:text-[420px] font-bold text-transparent pointer-events-none select-none leading-none tracking-[-0.04em] z-0 right-[-20px] md:right-[-3vw] bottom-[-20px] md:bottom-[-2vw]"
+    style={{
       WebkitTextStroke: "1px rgba(24,22,18,0.04)",
-      right: { xs: "-20px", md: "-3vw" },
-      bottom: { xs: "-20px", md: "-2vw" },
-      lineHeight: 1,
-      pointerEvents: "none",
-      userSelect: "none",
-      letterSpacing: "-0.04em",
-      zIndex: 0,
     }}
   >
     {year}
-  </Typography>
+  </span>
 );
 
 export default BackgroundYear;

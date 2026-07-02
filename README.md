@@ -1,6 +1,6 @@
 # Yomna Salah — Portfolio
 
-Personal portfolio website built with a *Still Magazine* editorial aesthetic — warm paper tones, generous negative space, and typography as the primary design element.
+Personal portfolio website built with a clean, editorial aesthetic — warm paper tones, generous negative space, and typography as the primary design element.
 
 **[yomna-salah.vercel.app](https://yomna-salah.vercel.app)** · **[LinkedIn](https://linkedin.com/in/yomna-s/)** · **[GitHub](https://github.com/syomna)**
 
@@ -9,10 +9,12 @@ Personal portfolio website built with a *Still Magazine* editorial aesthetic —
 ## Stack
 
 | | |
-|---|---|
-| Framework | React 18 |
-| UI Library | MUI (Material UI v5) |
+|---|---|---|
+| Build tool | Vite |
+| Framework | React 19 |
+| Styling | Tailwind CSS |
 | Animation | Framer Motion |
+| Icons | Lucide React |
 | Contact form | EmailJS |
 | Fonts | Playfair Display · Lora · DM Mono |
 
@@ -23,27 +25,25 @@ Personal portfolio website built with a *Still Magazine* editorial aesthetic —
 ```
 src/
 ├── utils/
-│   ├── constants.js       # Project data, experience, skill categories
-│   ├── tokens.js          # Design tokens (single source of truth for all colors)
-│   ├── theme.js           # MUI theme
-│   └── animations.js      # Shared Framer Motion helpers
-│
-├── components/
-│   ├── common/            # MonoLabel, SectionLabel, StatCell, CertRow, CustomCursor
-│   ├── home/              # BackgroundYear, NameDisplay, CtaCell
-│   ├── about/             # AboutText, CodePane, SkillBlock
-│   ├── experience/        # ExperienceRow, ExpMeta, ExpBullets
-│   ├── projects/          # ProjectCard, LinkIcon
+│   ├── constants.jsx      # Project data, experience, skill categories
+│   ├── animations.js       # Shared Framer Motion helpers
 │   │
-│   ├── Home.jsx
-│   ├── About.jsx
-│   ├── Experience.jsx
-│   ├── Projects.jsx
-│   ├── ContactForm.jsx
-│   ├── Footer.jsx
-│   └── Navbar.jsx
-│
-└── App.js
+│   ├── components/
+│   │   ├── common/         # MonoLabel, SectionLabel, StatCell, CertRow, CustomCursor
+│   │   ├── home/           # BackgroundYear, NameDisplay, CtaCell
+│   │   ├── about/          # AboutText, CodePane, SkillBlock
+│   │   ├── experience/     # ExperienceRow, ExpMeta, ExpBullets
+│   │   ├── projects/       # ProjectCard, LinkIcon
+│   │   │
+│   │   ├── Home.jsx
+│   │   ├── About.jsx
+│   │   ├── Experience.jsx
+│   │   ├── Projects.jsx
+│   │   ├── ContactForm.jsx
+│   │   ├── Footer.jsx
+│   │   └── Navbar.jsx
+│   │
+│   └── App.jsx
 ```
 
 ---
@@ -56,6 +56,16 @@ src/
 - **Contact form** — EmailJS integration with toast notifications
 - **Fully responsive** — mobile-first, tested down to 375px
 - **SEO** — JSON-LD structured data, Open Graph, Twitter Card, canonical URL
+
+---
+
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server (Vite) |
+| `npm run build` | Production build → `dist/` |
+| `npm run preview` | Preview production build |
 
 ---
 

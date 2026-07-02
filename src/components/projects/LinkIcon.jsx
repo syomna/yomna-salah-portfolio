@@ -1,26 +1,17 @@
-import { Box } from "@mui/material";
-import { INK_LOW, INK } from "../../utils/tokens";
 const LinkIcon = ({ href, icon, label }) => (
-  <Box
-    component="a"
+  <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
     title={label}
-    sx={{
-      display: "flex", alignItems: "center", gap: "6px",
-      color: INK_LOW, textDecoration: "none",
-      fontFamily: "'DM Mono', monospace",
-      fontSize: "9px", letterSpacing: "0.1em",
-      textTransform: "uppercase",
-      transition: "color 0.2s",
-      "&:hover": { color: INK },
-    }}
+    className="flex items-center gap-[6px] text-ink-low no-underline font-mono text-[9px] tracking-[0.1em] uppercase"
+    style={{ transition: "color 0.2s" }}
+    onMouseEnter={(e) => e.currentTarget.style.color = "#181612"}
+    onMouseLeave={(e) => e.currentTarget.style.color = "#9a9088"}
   >
     {icon}
-    <Box component="span" sx={{ display: { xs: "none", sm: "inline" } }}>{label}</Box>
-  </Box>
+    <span className="hidden sm:inline">{label}</span>
+  </a>
 );
 
 export default LinkIcon;
-

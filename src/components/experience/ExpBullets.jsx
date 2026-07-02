@@ -1,43 +1,21 @@
-import { Box, Typography } from "@mui/material";
-import { INK, INK_MID, SAGE } from "../../utils/tokens";
-
 const ExpBullets = ({ role, description }) => (
-  <Box sx={{ pl: { md: "44px" } }}>
-    {/* Role title */}
-    <Typography sx={{
-      fontFamily: "'Playfair Display', Georgia, serif",
-      fontSize: { xs: "20px", md: "26px" },
-      fontWeight: 500, color: INK,
-      letterSpacing: "-0.015em",
-      lineHeight: 1.2, mb: "20px",
-    }}>
+  <div className="md:pl-11">
+    <h3 className="font-heading text-[20px] md:text-[26px] font-medium text-ink tracking-[-0.015em] leading-[1.2] mb-5 m-0">
       {role}
-    </Typography>
+    </h3>
 
-    {/* Bullet list */}
-    <Box component="ul" sx={{ listStyle: "none", p: 0, m: 0 }}>
+    <ul className="list-none p-0 m-0">
       {description.map((bullet, i) => (
-        <Box
+        <li
           key={i}
-          component="li"
-          sx={{
-            fontFamily: "'Lora', Georgia, serif",
-            fontSize: "14px", lineHeight: 1.95,
-            color: INK_MID, fontWeight: 400,
-            py: "3px", pl: "18px",
-            position: "relative",
-            "&::before": {
-              content: '"—"',
-              position: "absolute",
-              left: 0, color: SAGE, fontSize: "13px",
-            },
-          }}
+          className="font-body text-[14px] leading-[1.95] text-ink-mid font-normal py-[3px] pl-[18px] relative m-0"
         >
+          <span className="absolute left-0 text-sage text-[13px]">—</span>
           {bullet}
-        </Box>
+        </li>
       ))}
-    </Box>
-  </Box>
+    </ul>
+  </div>
 );
 
 export default ExpBullets;

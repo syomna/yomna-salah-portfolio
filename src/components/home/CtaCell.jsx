@@ -1,74 +1,39 @@
-import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-import { PAPER, INK, INK_LOW, SAGE, RULE } from "../../utils/tokens";
 
 const CtaCell = ({ onContact, onDownload }) => (
-  <Box
-    sx={{
-      py: "28px",
-      pl: { xs: 0, md: "32px" },
-      borderLeft: { md: `1px solid ${RULE}` },
-      borderTop: { xs: `1px solid ${RULE}`, md: "none" },
-      gridColumn: { xs: "1 / -1", md: "auto" },
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      gap: "12px",
-    }}
-  >
-    {/* Primary CTA */}
-    <Box
+  <div className="py-7 pl-0 md:pl-8 border-l-0 md:border-l rule-b border-t md:border-t-0 rule-b col-span-full md:col-auto flex flex-col justify-center gap-3">
+    <motion.div
       role="button"
-      component={motion.div}
       whileHover={{ x: 4 }}
       transition={{ duration: 0.15 }}
       onClick={onContact}
-      sx={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "12px",
-        background: INK,
-        color: PAPER,
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px",
-        letterSpacing: "0.14em",
-        textTransform: "uppercase",
-        padding: "13px 22px",
-        cursor: "pointer",
-        width: "fit-content",
-        userSelect: "none",
-        transition: "background 0.25s",
-        "&:hover": { background: SAGE },
-      }}
+      className="inline-flex items-center gap-3 bg-ink text-paper font-mono text-[10px] tracking-[0.14em] uppercase px-[22px] py-[13px] cursor-pointer w-fit select-none"
+      style={{ transition: "background 0.25s" }}
+      onMouseEnter={(e) => e.currentTarget.style.background = "#6b7c5e"}
+      onMouseLeave={(e) => e.currentTarget.style.background = "#181612"}
     >
       Get in touch →
-    </Box>
+    </motion.div>
 
-    {/* Secondary: Download CV */}
-    <Box
+    <motion.div
       role="button"
-      component={motion.div}
       whileHover={{ x: 2 }}
       transition={{ duration: 0.15 }}
       onClick={onDownload}
-      sx={{
-        fontFamily: "'DM Mono', monospace",
-        fontSize: "10px",
-        letterSpacing: "0.12em",
-        textTransform: "uppercase",
-        color: INK_LOW,
-        borderBottom: `1px solid ${RULE}`,
-        paddingBottom: "3px",
-        width: "fit-content",
-        cursor: "pointer",
-        userSelect: "none",
-        transition: "color 0.2s, border-color 0.2s",
-        "&:hover": { color: INK, borderColor: INK },
+      className="font-mono text-[10px] tracking-[0.12em] uppercase text-ink-low border-b rule-b pb-[3px] w-fit cursor-pointer select-none"
+      style={{ transition: "color 0.2s, border-color 0.2s" }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = "#181612";
+        e.currentTarget.style.borderColor = "#181612";
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = "#9a9088";
+        e.currentTarget.style.borderColor = "rgba(24,22,18,0.10)";
       }}
     >
       ↓ Download CV
-    </Box>
-  </Box>
+    </motion.div>
+  </div>
 );
 
 export default CtaCell;

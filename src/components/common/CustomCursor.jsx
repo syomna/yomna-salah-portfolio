@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback } from "react";
-import { SAGE } from "../../utils/tokens";
 
 const isInteractive = (el) => {
   if (!el) return false;
@@ -17,14 +16,13 @@ const isInteractive = (el) => {
 };
 
 const CustomCursor = () => {
-  const [pos,  setPos]  = useState({ x: -100, y: -100 });
-  const [big,  setBig]  = useState(false);
+  const [pos, setPos] = useState({ x: -100, y: -100 });
+  const [big, setBig] = useState(false);
   const [show, setShow] = useState(false);
 
   const onMove = useCallback((e) => {
     setPos({ x: e.clientX, y: e.clientY });
     if (!show) setShow(true);
-    // intentionally NOT checking interactivity here
   }, [show]);
 
   const onOver = useCallback((e) => {
@@ -38,12 +36,12 @@ const CustomCursor = () => {
   useEffect(() => {
     if (window.matchMedia("(hover: none)").matches) return;
     document.addEventListener("mousemove", onMove);
-    document.addEventListener("mouseover",  onOver);
-    document.addEventListener("mouseout",   onOut);
+    document.addEventListener("mouseover", onOver);
+    document.addEventListener("mouseout", onOut);
     return () => {
       document.removeEventListener("mousemove", onMove);
-      document.removeEventListener("mouseover",  onOver);
-      document.removeEventListener("mouseout",   onOut);
+      document.removeEventListener("mouseover", onOver);
+      document.removeEventListener("mouseout", onOut);
     };
   }, [onMove, onOver, onOut]);
 
@@ -59,30 +57,32 @@ const CustomCursor = () => {
         }
       `}</style>
 
-      {/* Outer ring */}
-      <div style={{
-        position: "fixed", zIndex: 9999, pointerEvents: "none",
-        top: pos.y, left: pos.x,
-        width: "36px", height: "36px",
-        borderRadius: "50%",
-        border: `1.5px solid ${SAGE}`,
-        opacity: big ? 1 : 0,
-        transform: `translate(-50%, -50%) scale(${big ? 1 : 0.4})`,
-        transition: "transform 0.3s ease, opacity 0.3s ease",
-      }} />
+      <div
+        className="fixed pointer-events-none z-[9999]"
+        style={{
+          top: pos.y, left: pos.x,
+          width: "36px", height: "36px",
+          borderRadius: "50%",
+          border: "1.5px solid #6b7c5e",
+          opacity: big ? 1 : 0,
+          transform: `translate(-50%, -50%) scale(${big ? 1 : 0.4})`,
+          transition: "transform 0.3s ease, opacity 0.3s ease",
+        }}
+      />
 
-      {/* Inner dot */}
-      <div style={{
-        position: "fixed", zIndex: 9999, pointerEvents: "none",
-        top: pos.y, left: pos.x,
-        width: big ? "3px" : "7px",
-        height: big ? "3px" : "7px",
-        borderRadius: "50%",
-        background: SAGE,
-        opacity: show ? 1 : 0,
-        transform: "translate(-50%, -50%)",
-        transition: "width 0.25s ease, height 0.25s ease, opacity 0.3s ease",
-      }} />
+      <div
+        className="fixed pointer-events-none z-[9999]"
+        style={{
+          top: pos.y, left: pos.x,
+          width: big ? "3px" : "7px",
+          height: big ? "3px" : "7px",
+          borderRadius: "50%",
+          background: "#6b7c5e",
+          opacity: show ? 1 : 0,
+          transform: "translate(-50%, -50%)",
+          transition: "width 0.25s ease, height 0.25s ease, opacity 0.3s ease",
+        }}
+      />
     </>
   );
 };
