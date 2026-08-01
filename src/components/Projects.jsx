@@ -1,8 +1,8 @@
+import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { MobileProjects, WebProjects } from "../utils/constants";
-import ProjectCard from "./projects/ProjectCard";
 import SectionLabel from "./common/SectionLabel";
+import ProjectCard from "./projects/ProjectCard";
 
 const Projects = () => {
   const [tab, setTab] = useState(0);
@@ -13,7 +13,10 @@ const Projects = () => {
       id="projects"
       className="px-6 md:px-[60px] pt-20 md:pt-[120px] pb-20 md:pb-[120px] border-b rule-b bg-surface"
     >
-      <SectionLabel number="04" title="Selected Work" />
+      <SectionLabel
+        number="04"
+        title={`Selected ${tab === 0 ? "Mobile" : "Web"} Applications`}
+      />
 
       <div className="flex border-b rule-b mb-16">
         {["Mobile", "Web"].map((label, i) => (
@@ -21,7 +24,10 @@ const Projects = () => {
             key={label}
             onClick={() => setTab(i)}
             className="font-mono text-[10px] tracking-[0.16em] uppercase cursor-pointer pb-4 mr-9 relative"
-            style={{ color: tab === i ? "#181612" : "#9a9088", transition: "color 0.2s" }}
+            style={{
+              color: tab === i ? "#181612" : "#9a9088",
+              transition: "color 0.2s",
+            }}
           >
             {label}
             <div

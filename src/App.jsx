@@ -2,13 +2,13 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Navbar      from "./components/Navbar";
-import Home        from "./components/Home";
-import About       from "./components/About";
-import Experience  from "./components/Experience";
-import Projects    from "./components/Projects";
+import About from "./components/About";
 import ContactForm from "./components/ContactForm";
-import Footer      from "./components/Footer";
+import Experience from "./components/Experience";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+import Projects from "./components/Projects";
 import CustomCursor from "./components/common/CustomCursor";
 
 function App() {

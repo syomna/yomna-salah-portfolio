@@ -1,52 +1,82 @@
-import artigen from "../assets/projects/artigen.jpeg";
-import chatty from "../assets/projects/chatty.jpeg";
-import ipark from "../assets/projects/ipark.jpeg";
+import { Box, Cloud, Code, Terminal } from "lucide-react";
 import AKM from "../assets/projects/AKM.jpeg";
-import PenPoints from "../assets/projects/PenPoints.jpeg";
-import StoneStreet from "../assets/projects/StoneStreet.jpeg";
+import artigen from "../assets/projects/artigen.jpeg";
+import Azkari from "../assets/projects/Azkari.jpeg";
+import BostaClone from "../assets/projects/BostaClone.jpeg";
+import chatty from "../assets/projects/chatty.jpeg";
+import GhanaFootball from "../assets/projects/GhanaFootball.jpeg";
+import ipark from "../assets/projects/ipark.jpeg";
 import MyEyes from "../assets/projects/MyEyes.jpeg";
 import NannyFinder from "../assets/projects/NannyFinder.jpeg";
-import Azkari from "../assets/projects/Azkari.jpeg";
-import GhanaFootball from "../assets/projects/GhanaFootball.jpeg";
+import PenPoints from "../assets/projects/PenPoints.jpeg";
 import ShopManagment from "../assets/projects/ShopManagment.jpeg";
-import BostaClone from "../assets/projects/BostaClone.jpeg";
-import { Code, Terminal, Cloud, Box } from "lucide-react";
-
+import StoneStreet from "../assets/projects/StoneStreet.jpeg";
 
 export // ─── CERTIFICATIONS ──────────────────────────────────────────────────────────
 const CERTS = [
   {
     label: "iOS UI Development",
-    sub:   "Meta · Certified",
-    href:  "https://coursera.org/verify/specialization/QNVYNKVZNBWA",
+    sub: "Meta · Certified",
+    href: "https://coursera.org/verify/specialization/QNVYNKVZNBWA",
   },
   {
     label: "Front-End Developer",
-    sub:   "Meta · Certified",
-    href:  "https://coursera.org/verify/professional-cert/KCBQGDKJR9X5",
+    sub: "Meta · Certified",
+    href: "https://coursera.org/verify/professional-cert/KCBQGDKJR9X5",
   },
-  ];
+];
 
 export const skillCategories = [
   {
     title: "Core Development",
     icon: <Code size={16} />,
-    skills: ["Flutter", "React.js", "TypeScript", "JavaScript", "Dart", "SwiftUI (Native iOS)", "Node.js"],
+    skills: [
+      "Flutter",
+      "Dart",
+      "SwiftUI",
+      "React.js",
+      "TypeScript",
+      "JavaScript",
+    ],
   },
   {
-    title: "Architecture & Tools",
+    title: "Architecture & Patterns",
     icon: <Box size={16} />,
-    skills: ["Clean Architecture", "MVVM", "BLoC", "Provider", "SOLID Principles", "Dependency Injection", "Unit Testing"],
+    skills: [
+      "Clean Architecture",
+      "MVVM",
+      "BLoC",
+      "Provider",
+      "SOLID Principles",
+      "Dependency Injection",
+      "Unit Testing",
+    ],
   },
   {
-    title: "Cloud & Backend",
+    title: "Backend & AI",
     icon: <Cloud size={16} />,
-    skills: ["API Integration","Firebase", "Firestore", "Google Cloud APIs", "OpenAI / Gemini", "Stripe", "RevenueCat"],
+    skills: [
+      "Firebase",
+      "REST APIs",
+      "Cloud Functions",
+      "Google Cloud APIs",
+      "OpenAI API",
+      "Gemini API",
+      "Stripe",
+      "RevenueCat",
+    ],
   },
   {
-    title: "DevOps & Workflow",
+    title: "Tools & Delivery",
     icon: <Terminal size={16} />,
-    skills: ["Git/GitHub", "Codemagic CI/CD", "App Store Deployment", "Jira", "Figma"],
+    skills: [
+      "Git/GitHub",
+      "Codemagic CI/CD",
+      "App Store Connect",
+      "Google Play Console",
+      "Figma",
+      "Jira",
+    ],
   },
 ];
 
@@ -58,7 +88,7 @@ export const certifications = [
   {
     label: "Meta Front-End Developer",
     href: "https://coursera.org/verify/professional-cert/KCBQGDKJR9X5",
-  }
+  },
 ];
 
 export const experiences = [
@@ -69,7 +99,7 @@ export const experiences = [
     location: "Remote, United States",
     link: "https://www.stonestreetsyndicate.com/", // Real company link
     description: [
-      "Took over a partially built app at a US photography startup as the sole developer, driving it to a fully functional production product across Flutter mobile, React web admin panel, and backend integrations, collaborating directly with the founder.",
+      "Took ownership of a partially built app at a US photography startup as the sole developer, driving it to a fully functional production product across Flutter mobile, React web admin panel, and backend integrations, collaborating directly with the founder.",
       "Architected and deployed a multi-stage ‘Casting Calls’ marketplace engine with integrated Stripe payments and RevenueCat subscriptions; extended the Flutter web admin panel to display and moderate job posts with an email blast feature for all users.",
       "Implemented a robust notification architecture with deep-linking and automated re-engagement triggers using Node.js Cloud Functions.",
       "Built Travel Boards, a feature where creatives post their travel availability and clients discover and book them by location, using Google Places API.",
@@ -83,8 +113,8 @@ export const experiences = [
     link: "https://www.upwork.com/freelancers/~0155980773e7307264", // Your Upwork profile
     description: [
       "Developed and delivered cross-platform mobile applications for international clients using Flutter, React, and Firebase.",
-"Worked on API integration, authentication, push notifications, payment systems, and app deployment.",
-"Collaborated with clients to translate business requirements into production-ready mobile applications."
+      "Worked on API integration, authentication, push notifications, payment systems, and app deployment.",
+      "Collaborated with clients to translate business requirements into production-ready mobile applications.",
     ],
   },
   {
@@ -92,7 +122,7 @@ export const experiences = [
     role: "Mobile & Front-End Development Trainee",
     period: "03/2023 — 07/2023",
     location: "Hybrid, Egypt",
-    link: "https://iti.gov.eg/", 
+    link: "https://iti.gov.eg/",
     description: [
       "Completed intensive training in Flutter, React, Angular, and mobile application development.",
       "Collaborated within an Agile team to develop a smart parking graduation project.",
@@ -106,7 +136,14 @@ export const WebProjects = [
     title: "Shop Managment",
     subTitle:
       "A web app that allows users to easily add, edit, remove, and manage their shops, providing a seamless way to organize and update shop information.",
-    tech: ["react", "material ui", "typescript", "redux", "firebase", "google-cloud"],
+    tech: [
+      "react",
+      "material ui",
+      "typescript",
+      "redux",
+      "firebase",
+      "google-cloud",
+    ],
     demo: "https://drive.google.com/file/d/1qDVfS7peqUMQ3iJJ8kgewB7wutWEQvIg/view?usp=drivesdk",
     github: "https://github.com/syomna/shop-crud",
   },
@@ -115,7 +152,14 @@ export const WebProjects = [
     title: "Bosta Clone",
     subTitle:
       "A user-friendly web app that allows users to quickly retrieve and track shipment details in real-time.",
-    tech: ["react", "material ui", "redux", "react-hooks", "api-integration", "localization"],
+    tech: [
+      "react",
+      "material ui",
+      "redux",
+      "react-hooks",
+      "api-integration",
+      "localization",
+    ],
     demo: "https://drive.google.com/file/d/1GAigfbeURc8FDcbZYMeGrApJc9ZXaOm0/view?usp=sharing",
     github: "https://github.com/syomna/Bosta_Task",
   },
@@ -142,7 +186,15 @@ export const WebProjects = [
     title: "IPark",
     subTitle:
       "A web and mobile app offering parking solutions, allowing users to find, reserve, and pay for parking spots while managing reservations.",
-    tech: ["react", "react-native", "redux-toolkit", "firebase", "stripe", "mui", "google-cloud"],
+    tech: [
+      "react",
+      "react-native",
+      "redux-toolkit",
+      "firebase",
+      "stripe",
+      "mui",
+      "google-cloud",
+    ],
     demo: "https://drive.google.com/drive/folders/1Uq7eTYdla0i_A9y6TSm7du9MjH2trya6?usp=drive_link",
     github: "https://github.com/Nader-CS/parking-system",
   },
@@ -153,25 +205,54 @@ export const MobileProjects = [
     img: StoneStreet,
     title: "Stone Street: Book photos",
     subTitle:
-"A photography booking platform live on the App Store and Google Play. I joined when the app was partially built and took it to a fully working product, owning the mobile app, web admin panel, and backend integrations end-to-end.",    tech: ["flutter", "firebase", "stripe", "cloud-functions", "provider", "revenue-cat", "code-magic"],
-    playStore: "https://play.google.com/store/apps/details?id=stone.street.app&hl=en",
-    appStore: "https://apps.apple.com/us/app/stone-street-book-photos/id6557076325",
+      "A photography booking platform live on the App Store and Google Play. I joined when the app was partially built and took it to a fully working product, owning the mobile app, web admin panel, and backend integrations end-to-end.",
+    tech: [
+      "flutter",
+      "firebase",
+      "stripe",
+      "cloud-functions",
+      "provider",
+      "revenue-cat",
+      "code-magic",
+    ],
+    playStore:
+      "https://play.google.com/store/apps/details?id=stone.street.app&hl=en",
+    appStore:
+      "https://apps.apple.com/us/app/stone-street-book-photos/id6557076325",
   },
   {
     img: PenPoints,
     title: "PenPoints - interactive spelling coach",
     subTitle:
       "An AI-powered spelling coach for children that analyzes handwritten words using Cloud Vision API, highlights errors with confidence scores, and lets kids practice independently at their own pace.",
-    tech: ["flutter", "firebase", "google-vision-api", "cloud-functions", "open-ai-api", "firebase-analytics", "bloc"],
-    playStore: "https://play.google.com/store/apps/details?id=com.mickaelrobin.wright&hl=en&pli=1",
-    appStore: "https://apps.apple.com/eg/app/penpoints-fun-spelling-coach/id6737171584",
+    tech: [
+      "flutter",
+      "firebase",
+      "google-vision-api",
+      "cloud-functions",
+      "open-ai-api",
+      "firebase-analytics",
+      "bloc",
+    ],
+    playStore:
+      "https://play.google.com/store/apps/details?id=com.mickaelrobin.wright&hl=en&pli=1",
+    appStore:
+      "https://apps.apple.com/eg/app/penpoints-fun-spelling-coach/id6737171584",
   },
   {
     img: AKM,
     title: "AKM - العبد الكريم للخرسانة",
     subTitle:
       "A construction industry app to place concrete orders, track real-time delivery status, and ensure quality control.",
-    tech: ["flutter", "firebase", "api-integration", "google-cloud", "localization", "fcm", "bloc"],
+    tech: [
+      "flutter",
+      "firebase",
+      "api-integration",
+      "google-cloud",
+      "localization",
+      "fcm",
+      "bloc",
+    ],
     playStore: "https://play.google.com/store/apps/details?id=com.sti.akm",
     appStore: "https://apps.apple.com/sa/app/akm-للخرسانة/id6476569574?l=ar",
   },
@@ -180,7 +261,14 @@ export const MobileProjects = [
     title: "MyEyes - helps vision impaired people",
     subTitle:
       "A mobile app designed to empower vision-impaired individuals by enhancing their independence and accessibility in navigating environments.",
-    tech: ["flutter", "gemini-ai", "firebase-crashlytics", "google-analytics", "text-to-speech", "provider"],
+    tech: [
+      "flutter",
+      "gemini-ai",
+      "firebase-crashlytics",
+      "google-analytics",
+      "text-to-speech",
+      "provider",
+    ],
     demo: "https://www.youtube.com/shorts/S7HYC4YXEwA",
     github: "https://github.com/syomna/my-eyes",
   },
@@ -189,8 +277,16 @@ export const MobileProjects = [
     title: "NannyFinder",
     subTitle:
       "A comprehensive mobile app for nanny job applications, advanced profile filtering, and seamless family communication.",
-    tech: ["flutter", "firebase", "dynamic-links", "flutter-web", "hosting", "bloc"],
-    playStore: "https://play.google.com/store/apps/details?id=com.mickaelrobin.nannyfinderuae",
+    tech: [
+      "flutter",
+      "firebase",
+      "dynamic-links",
+      "flutter-web",
+      "hosting",
+      "bloc",
+    ],
+    playStore:
+      "https://play.google.com/store/apps/details?id=com.mickaelrobin.nannyfinderuae",
     appStore: "https://apps.apple.com/app/id6443669769",
   },
   {
@@ -198,8 +294,16 @@ export const MobileProjects = [
     title: "أذكاري | Azkari",
     subTitle:
       "Your daily companion for supplications (Azkar) and prayers (Ad'iyah) to elevate worship and strengthen spiritual connection.",
-    tech: ["flutter", "notifications", "provider", "clean-architecture", "unit-testing", "code-magic"],
-    playStore: "https://play.google.com/store/apps/details?id=com.yomna.azkar_app",
+    tech: [
+      "flutter",
+      "notifications",
+      "provider",
+      "clean-architecture",
+      "unit-testing",
+      "code-magic",
+    ],
+    playStore:
+      "https://play.google.com/store/apps/details?id=com.yomna.azkar_app",
     appStore: "https://apps.apple.com/eg/app/أذكــــاري-azkari/id6479560831",
   },
   {
@@ -207,8 +311,15 @@ export const MobileProjects = [
     title: "Ghana Football",
     subTitle:
       "The ultimate mobile app for football enthusiasts featuring live matches, latest news, scores, and highlights.",
-    tech: ["flutter", "firebase", "api-integration", "google-analytics", "bloc"],
-    playStore: "https://play.google.com/store/apps/details?id=com.ghfootballapp.app&hl=en&gl=US",
+    tech: [
+      "flutter",
+      "firebase",
+      "api-integration",
+      "google-analytics",
+      "bloc",
+    ],
+    playStore:
+      "https://play.google.com/store/apps/details?id=com.ghfootballapp.app&hl=en&gl=US",
     appStore: "https://apps.apple.com/eg/app/ghana-football-app/id1586234457",
   },
 ];

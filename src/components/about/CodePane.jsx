@@ -4,9 +4,9 @@ const CODE_HTML = `<span style="color:rgba(255,255,255,0.2)">// hi, I'm Yomna 馃
 
 <span style="color:#c084fc">const</span> <span style="color:#fbbf24">yomna</span> <span style="color:#c084fc">=</span> <span style="color:#67e8f9">{</span>
 
-  <span style="color:#fbbf24">focus</span><span style="color:#c084fc">:</span>     <span style="color:#86efac">'production apps 路 mobile & web'</span>,
-  <span style="color:#fbbf24">stack</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'Flutter 路 React'</span>,
-  <span style="color:#fbbf24">tools</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'Firebase 路 Node.js 路 Tailwind'</span>,
+  <span style="color:#fbbf24">focus</span><span style="color:#c084fc">:</span>     <span style="color:#86efac">'Production Mobile Apps'</span>,
+  <span style="color:#fbbf24">stack</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'Flutter 路 Dart 路 Firebase'</span>,
+  <span style="color:#fbbf24">tools</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'AI 路 Clean Architecture 路 CI/CD'</span>,
 
   <span style="color:#fbbf24">build</span><span style="color:#c084fc">:</span> <span style="color:#67e8f9">()</span> <span style="color:#c084fc">=></span> <span style="color:#fbbf24">ProductionApp</span>(),
 
@@ -16,7 +16,10 @@ const CodePane = () => (
   <div className="bg-ink overflow-hidden">
     <div className="px-4 py-[10px] border-b border-white/5 flex items-center gap-[6px]">
       {DOTS.map((c) => (
-        <div key={c} style={{ width: 9, height: 9, borderRadius: "50%", background: c }} />
+        <div
+          key={c}
+          style={{ width: 9, height: 9, borderRadius: "50%", background: c }}
+        />
       ))}
       <span className="font-mono text-[10px] text-white/20 ml-2 tracking-[0.04em]">
         yomna.js

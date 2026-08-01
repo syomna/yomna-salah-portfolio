@@ -1,18 +1,18 @@
 import { motion } from "framer-motion";
-import cv from "../assets/resume/Yomna_Salah_Flutter_Developer_CV.pdf";
+import cv from "../assets/resume/Yomna_Salah_Flutter_Mobile_Developer_CV.pdf";
 
 import { fadeUp } from "../utils/animations";
 
+import MonoLabel from "./common/MonoLabel";
+import StatCell from "./common/StatCell";
 import BackgroundYear from "./home/BackgroundYear";
-import NameDisplay    from "./home/NameDisplay";
-import CtaCell        from "./home/CtaCell";
-import MonoLabel      from "./common/MonoLabel";
-import StatCell       from "./common/StatCell";
+import CtaCell from "./home/CtaCell";
+import NameDisplay from "./home/NameDisplay";
 
 const STATS = [
-  { number: "4+",  label: "Years building" },
+  { number: "4+", label: "Years building" },
   { number: "15+", label: "Projects Delivered" },
-  { number: "Production Apps", label: "Android & iOS & Web" },
+  { number: "Production Apps", label: "Android & iOS" },
 ];
 
 const scrollToContact = () => {
@@ -23,7 +23,7 @@ const scrollToContact = () => {
 
 const downloadCV = () => {
   const link = document.createElement("a");
-  link.download = "Yomna_Salah_Flutter_Developer_CV.pdf";
+  link.download = "Yomna_Salah_Flutter_Mobile_Developer_CV.pdf";
   link.href = cv;
   link.click();
 };
@@ -48,13 +48,11 @@ const Home = () => (
         <NameDisplay />
       </motion.div>
 
-      <motion.div
-        {...fadeUp(0.45)}
-        className="mt-9 flex items-center gap-6"
-      >
+      <motion.div {...fadeUp(0.45)} className="mt-9 flex items-center gap-6">
         <div className="w-12 h-px rule-b shrink-0" />
         <p className="font-body text-[15px] italic text-ink-mid tracking-[0.01em] m-0">
-          Flutter & React Developer · Building for mobile and web.
+          Flutter Mobile Developer · crafting production-ready apps from idea to
+          App Store.
         </p>
       </motion.div>
     </div>

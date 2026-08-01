@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const NAV_ITEMS = ["About", "Skills", "Experience", "Projects", "Contact"];
 
@@ -44,8 +44,8 @@ const Navbar = () => {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="font-heading text-[15px] font-medium italic tracking-[0.03em] text-ink bg-none border-none cursor-pointer select-none p-0"
           style={{ transition: "color 0.2s" }}
-          onMouseEnter={(e) => e.target.style.color = "#6b7c5e"}
-          onMouseLeave={(e) => e.target.style.color = "#181612"}
+          onMouseEnter={(e) => (e.target.style.color = "#6b7c5e")}
+          onMouseLeave={(e) => (e.target.style.color = "#181612")}
         >
           Yomna Salah
         </button>
@@ -57,8 +57,8 @@ const Navbar = () => {
               onClick={() => handleScroll(item)}
               className="font-mono text-[10px] font-light tracking-[0.14em] uppercase text-ink-low bg-none border-none p-0 cursor-pointer"
               style={{ transition: "color 0.2s" }}
-              onMouseEnter={(e) => e.target.style.color = "#181612"}
-              onMouseLeave={(e) => e.target.style.color = "#9a9088"}
+              onMouseEnter={(e) => (e.target.style.color = "#181612")}
+              onMouseLeave={(e) => (e.target.style.color = "#9a9088")}
             >
               {item}
             </button>
@@ -75,7 +75,7 @@ const Navbar = () => {
               ],
             }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="w-[5px] h-[5px] rounded-full bg-sage shrink-0"
+            className="w-[5px] h-[5px] rounded-full bg-green-500 shrink-0"
           />
           <span className="font-mono text-[10px] font-light tracking-[0.14em] uppercase text-sage">
             Available for work

@@ -1,15 +1,18 @@
-import { useState } from "react";
-import { Linkedin, Github } from "lucide-react";
-import { motion } from "framer-motion";
-import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
+import { Github, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { toast } from "react-toastify";
 import { reveal } from "../utils/animations";
 import FormField from "./contact/FormField";
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    name: "", email: "", subject: "", message: "",
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleChange = (e) =>
@@ -18,8 +21,8 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const nameError    = formData.name.trim() === "";
-    const emailError   = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
+    const nameError = formData.name.trim() === "";
+    const emailError = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email);
     const messageError = formData.message.trim() === "";
 
     if (nameError || emailError || messageError) {
@@ -35,11 +38,11 @@ const ContactForm = () => {
         "template_y6mlthg",
         {
           from_name: formData.name,
-          reply_to:  formData.email,
-          subject:   formData.subject,
-          message:   formData.message,
+          reply_to: formData.email,
+          subject: formData.subject,
+          message: formData.message,
         },
-        "m0NOuyDY7ba6cSqg5"
+        "m0NOuyDY7ba6cSqg5",
       )
       .then(
         () => {
@@ -50,14 +53,26 @@ const ContactForm = () => {
         () => {
           toast.error("Something went wrong. Please try again.");
           setLoading(false);
-        }
+        },
       );
   };
 
   const contactLinks = [
-    { icon: "✉", label: "syomna444@gmail.com", href: "mailto:syomna444@gmail.com" },
-    { icon: <Linkedin size={14} />, label: "LinkedIn", href: "https://linkedin.com/in/yomna-s/" },
-    { icon: <Github size={14} />,   label: "GitHub",   href: "https://github.com/syomna" },
+    {
+      icon: "✉",
+      label: "syomna444@gmail.com",
+      href: "mailto:syomna444@gmail.com",
+    },
+    {
+      icon: <Linkedin size={14} />,
+      label: "LinkedIn",
+      href: "https://linkedin.com/in/yomna-s/",
+    },
+    {
+      icon: <Github size={14} />,
+      label: "GitHub",
+      href: "https://github.com/syomna",
+    },
   ];
 
   return (
@@ -67,9 +82,11 @@ const ContactForm = () => {
           {...reveal(0)}
           className="bg-dark-bg px-3 md:px-[60px] py-16 md:py-20 flex flex-col justify-between relative overflow-hidden border-r-0 md:border-r border-white/5"
         >
-          <div className="absolute bottom-[-80px] left-[-80px] w-[320px] h-[320px] rounded-full pointer-events-none"
+          <div
+            className="absolute bottom-[-80px] left-[-80px] w-[320px] h-[320px] rounded-full pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(107,124,94,0.15) 0%, transparent 70%)",
+              background:
+                "radial-gradient(circle, rgba(107,124,94,0.15) 0%, transparent 70%)",
             }}
           />
 
@@ -85,12 +102,22 @@ const ContactForm = () => {
             </div>
 
             <h2 className="font-heading text-[40px] md:text-[64px] font-medium leading-[0.92] tracking-[-0.025em] text-paper mb-7 m-0">
-              Let's make<br />
+              Let's make
+              <br />
               <em className="italic text-sage">something great.</em>
             </h2>
 
             <p className="font-body text-[15px] leading-[1.9] text-paper/45 max-w-[38ch] mb-12 m-0">
-              Open to <strong className="text-paper/80 font-medium">freelance projects</strong> and <strong className="text-paper/80 font-medium">full-time roles</strong>. If you need a mobile or web developer who cares about craft and delivery — I'm available now.
+              Available for{" "}
+              <strong className="text-paper/80 font-medium">
+                Flutter freelance projects
+              </strong>{" "}
+              and{" "}
+              <strong className="text-paper/80 font-medium">
+                full-time opportunities
+              </strong>
+              . If you need a mobile developer who cares about craft and
+              delivery — I'm available now.
             </p>
           </div>
 
@@ -106,35 +133,52 @@ const ContactForm = () => {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.paddingLeft = "8px";
                   const ic = e.currentTarget.querySelector(".ct-ic");
-                  if (ic) { ic.style.background = "#6b7c5e"; ic.style.borderColor = "#6b7c5e"; ic.style.color = "#fff"; }
+                  if (ic) {
+                    ic.style.background = "#6b7c5e";
+                    ic.style.borderColor = "#6b7c5e";
+                    ic.style.color = "#fff";
+                  }
                   const txt = e.currentTarget.querySelector(".ct-txt");
                   if (txt) txt.style.color = "#f8f6f1";
                   const arr = e.currentTarget.querySelector(".ct-arr");
-                  if (arr) { arr.style.transform = "translateX(4px)"; arr.style.color = "#f8f6f1"; }
+                  if (arr) {
+                    arr.style.transform = "translateX(4px)";
+                    arr.style.color = "#f8f6f1";
+                  }
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.paddingLeft = "0";
                   const ic = e.currentTarget.querySelector(".ct-ic");
-                  if (ic) { ic.style.background = ""; ic.style.borderColor = ""; ic.style.color = ""; }
+                  if (ic) {
+                    ic.style.background = "";
+                    ic.style.borderColor = "";
+                    ic.style.color = "";
+                  }
                   const txt = e.currentTarget.querySelector(".ct-txt");
                   if (txt) txt.style.color = "";
                   const arr = e.currentTarget.querySelector(".ct-arr");
-                  if (arr) { arr.style.transform = ""; arr.style.color = ""; }
+                  if (arr) {
+                    arr.style.transform = "";
+                    arr.style.color = "";
+                  }
                 }}
               >
                 <div className="flex items-center gap-[14px]">
-                  <div className="ct-ic w-8 h-8 border border-white/15 flex items-center justify-center font-mono text-[12px] text-white/30"
+                  <div
+                    className="ct-ic w-8 h-8 border border-white/15 flex items-center justify-center font-mono text-[12px] text-white/30"
                     style={{ transition: "all 0.2s" }}
                   >
                     {icon}
                   </div>
-                  <span className="ct-txt font-body text-[14px] text-white/40"
+                  <span
+                    className="ct-txt font-body text-[14px] text-white/40"
                     style={{ transition: "color 0.2s" }}
                   >
                     {label}
                   </span>
                 </div>
-                <span className="ct-arr text-[13px] text-white/20"
+                <span
+                  className="ct-arr text-[13px] text-white/20"
                   style={{ transition: "all 0.2s" }}
                 >
                   →
@@ -148,7 +192,10 @@ const ContactForm = () => {
           {...reveal(0.15)}
           className="px-3 md:px-[60px] py-16 md:py-20 bg-paper"
         >
-          <form onSubmit={handleSubmit} className="border rule-b overflow-hidden">
+          <form
+            onSubmit={handleSubmit}
+            className="border rule-b overflow-hidden"
+          >
             <div className="grid grid-cols-2 border-b rule-b">
               <FormField
                 label="Name"
@@ -196,13 +243,20 @@ const ContactForm = () => {
               disabled={loading}
               className="flex items-center justify-between bg-ink border-none w-full px-5 py-[18px] cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
               style={{ transition: "background 0.25s" }}
-              onMouseEnter={(e) => { if (!loading) e.currentTarget.style.background = "#6b7c5e"; }}
-              onMouseLeave={(e) => e.currentTarget.style.background = "#181612"}
+              onMouseEnter={(e) => {
+                if (!loading) e.currentTarget.style.background = "#6b7c5e";
+              }}
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.background = "#181612")
+              }
             >
               <span className="font-mono text-[10px] tracking-[0.14em] uppercase text-paper">
                 {loading ? "Sending..." : "Send message"}
               </span>
-              <span className="text-paper text-[15px]" style={{ transition: "transform 0.2s" }}>
+              <span
+                className="text-paper text-[15px]"
+                style={{ transition: "transform 0.2s" }}
+              >
                 →
               </span>
             </button>
