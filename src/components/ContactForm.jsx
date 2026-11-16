@@ -93,7 +93,7 @@ const ContactForm = () => {
           <div>
             <div className="flex items-center gap-5 mb-[52px]">
               <span className="font-mono text-[10px] tracking-[0.16em] text-white/25">
-                05
+                06
               </span>
               <div className="flex-1 h-px bg-white/5" />
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/25">
@@ -126,7 +126,11 @@ const ContactForm = () => {
               <a
                 key={label}
                 href={href}
-                target={href.startsWith("mailto") ? undefined : "_blank"}
+                target={
+                  href.startsWith("mailto") || href.startsWith("tel")
+                    ? undefined
+                    : "_blank"
+                }
                 rel="noopener noreferrer"
                 className="flex items-center justify-between py-4 border-b border-white/5 no-underline group"
                 style={{ transition: "padding-left 0.2s" }}

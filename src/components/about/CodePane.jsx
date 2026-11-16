@@ -1,16 +1,24 @@
 const DOTS = ["#ff5f57", "#febc2e", "#28c840"];
 
-const CODE_HTML = `<span style="color:rgba(255,255,255,0.2)">// hi, I'm Yomna 👋</span>
+// Dart / Flutter syntax colours
+const K = "#c084fc"; // keywords
+const T = "#67e8f9"; // types
+const S = "#86efac"; // strings
+const P = "#fbbf24"; // properties / annotations
+const C = "rgba(255,255,255,0.2)"; // comments
 
-<span style="color:#c084fc">const</span> <span style="color:#fbbf24">yomna</span> <span style="color:#c084fc">=</span> <span style="color:#67e8f9">{</span>
+const CODE_HTML = `<span style="color:${C}">// hi, I'm Yomna 👋</span>
 
-  <span style="color:#fbbf24">focus</span><span style="color:#c084fc">:</span>     <span style="color:#86efac">'Production Mobile Apps'</span>,
-  <span style="color:#fbbf24">stack</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'Flutter · Dart · Firebase'</span>,
-  <span style="color:#fbbf24">tools</span><span style="color:#c084fc">:</span>      <span style="color:#86efac">'AI · Clean Architecture · CI/CD'</span>,
+<span style="color:${K}">import</span> <span style="color:${S}">'package:flutter/material.dart'</span>;
 
-  <span style="color:#fbbf24">build</span><span style="color:#c084fc">:</span> <span style="color:#67e8f9">()</span> <span style="color:#c084fc">=></span> <span style="color:#fbbf24">ProductionApp</span>(),
+<span style="color:${K}">class</span> <span style="color:${T}">Yomna</span> <span style="color:${K}">extends</span> <span style="color:${T}">Developer</span> {
+  <span style="color:${K}">final</span> <span style="color:${T}">String</span> <span style="color:${P}">focus</span> <span style="color:${K}">=</span> <span style="color:${S}">'Production Mobile Apps'</span>;
+  <span style="color:${K}">final</span> <span style="color:${P}">stack</span> <span style="color:${K}">=</span> [<span style="color:${S}">'Flutter'</span>, <span style="color:${S}">'Dart'</span>, <span style="color:${S}">'SwiftUI'</span>, <span style="color:${S}">'Firebase'</span>];
+  <span style="color:${K}">final</span> <span style="color:${P}">tools</span> <span style="color:${K}">=</span> [<span style="color:${S}">'AI'</span>, <span style="color:${S}">'Clean Architecture'</span>, <span style="color:${S}">'Codemagic'</span>];
 
-<span style="color:#67e8f9">}</span>`;
+  <span style="color:${P}">@override</span>
+  <span style="color:${T}">ProductionApp</span> <span style="color:${P}">build</span>() <span style="color:${K}">=&gt;</span> <span style="color:${T}">ProductionApp</span>();
+}`;
 
 const CodePane = () => (
   <div className="bg-ink overflow-hidden">
@@ -22,7 +30,7 @@ const CodePane = () => (
         />
       ))}
       <span className="font-mono text-[10px] text-white/20 ml-2 tracking-[0.04em]">
-        yomna.js
+        main.dart
       </span>
     </div>
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const NAV_ITEMS = ["About", "Skills", "Experience", "Projects", "Contact"];
+const NAV_ITEMS = ["About", "Skills", "Experience", "Projects", "Education", "Contact"];
 
 const Navbar = () => {
   const [raised, setRaised] = useState(false);
@@ -18,6 +18,7 @@ const Navbar = () => {
       Skills: "skills",
       Experience: "experience",
       Projects: "projects",
+      Education: "education",
       Contact: "contact",
     };
     const el = document.getElementById(idMap[label]);

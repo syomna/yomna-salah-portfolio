@@ -1,7 +1,5 @@
 const StatCell = ({ number, label, fontSize = {} }) => {
-  const numSize = number === "Production Apps"
-    ? "text-[16px] md:text-[32px]"
-    : "text-[36px] md:text-[52px]";
+  const numSize = "text-[36px] md:text-[52px]";
 
   return (
     <div className="py-7 px-6 md:px-8 border-r rule-b">

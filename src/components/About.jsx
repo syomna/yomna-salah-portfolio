@@ -3,6 +3,7 @@ import { skillCategories, CERTS } from "../utils/constants";
 import { reveal } from "../utils/animations";
 import SectionLabel from "./common/SectionLabel";
 import CertRow      from "./common/CertRow";
+import Languages    from "./common/Languages";
 import AboutText    from "./about/AboutText";
 import CodePane     from "./about/CodePane";
 import SkillBlock   from "./about/SkillBlock";
@@ -27,6 +28,9 @@ const About = () => (
               <CertRow {...c} />
             </motion.div>
           ))}
+          <motion.div {...reveal(0.18)}>
+            <Languages />
+          </motion.div>
         </div>
       </div>
     </section>

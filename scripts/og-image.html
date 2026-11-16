@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=DM+Mono:wght@400;500&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet" />
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1200px; height:630px; overflow:hidden;
+    background:#f8f6f1; color:#181612;
+    font-family:'DM Mono', monospace;
+    display:flex; flex-direction:column;
+    padding:56px 72px;
+    position:relative;
+  }
+  .rule { height:1px; background:rgba(24,22,18,0.12); }
+  .top { display:flex; justify-content:space-between; align-items:center; padding-bottom:22px; }
+  .label { font-size:12px; letter-spacing:.22em; text-transform:uppercase; color:#6b7c5e; font-weight:500; }
+  .label.dark { color:#9a9088; font-weight:400; }
+  .name { font-family:'Playfair Display', serif; font-size:104px; line-height:.92; font-weight:600; letter-spacing:-.03em; margin-top:auto; }
+  .name em { font-style:italic; color:#6b7c5e; }
+  .tagline { font-family:'Lora', serif; font-style:italic; font-size:26px; color:#4a4540; margin-top:26px; }
+  .foot { margin-top:auto; padding-top:26px; display:flex; justify-content:space-between; align-items:flex-end; }
+  .links { font-size:12px; letter-spacing:.1em; color:#9a9088; }
+  .stat { text-align:right; }
+  .stat .n { font-family:'Playfair Display', serif; font-size:34px; font-weight:600; line-height:1; }
+  .stat .l { font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:#9a9088; margin-top:8px; }
+  .year {
+    position:absolute; right:56px; bottom:-40px; z-index:0;
+    font-family:'Playfair Display', serif; font-weight:700; font-size:340px; line-height:1;
+    color:transparent; -webkit-text-stroke:1px rgba(24,22,18,0.05);
+  }
+</style>
+</head>
+<body>
+  <div class="year">2026</div>
+
+  <div class="top">
+    <span class="label">Giza · Egypt</span>
+    <span class="label dark">Flutter Mobile Developer</span>
+  </div>
+  <div class="rule"></div>
+
+  <div class="name">Yomna<br /><em>Salah.</em></div>
+
+  <div class="tagline">Crafting production-ready apps from idea to App Store.</div>
+
+  <div class="foot">
+    <div>
+      <div class="links">yomna-salah.vercel.app</div>
+      <div class="links" style="margin-top:8px;">linkedin.com/in/yomna-s &nbsp;·&nbsp; github.com/syomna</div>
+    </div>
+    <div class="stat">
+      <div class="n">15+</div>
+      <div class="l">Production Apps Shipped</div>
+    </div>
+  </div>
+</body>
+</html>

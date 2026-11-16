@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&family=Caladea:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root { --ink:#1a1a1a; --muted:#595959; --accent:#3f6046; --hair:#c8c8c8; }
+  body {
+    width:210mm; min-height:297mm;
+    font-family:'Carlito','Calibri',Arial,sans-serif;
+    font-size:9.1pt; line-height:1.32; color:var(--ink);
+    padding:11mm 14mm 10mm;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  h1 { font-family:'Caladea','Cambria',Georgia,serif; font-size:21pt; font-weight:700; letter-spacing:-.2pt; }
+  .title { font-size:11pt; color:var(--accent); font-weight:700; margin-top:1mm; letter-spacing:.2pt; }
+  .contact { font-size:8.6pt; color:var(--muted); margin-top:2.2mm; line-height:1.5; }
+  .contact a { color:var(--muted); text-decoration:none; }
+
+  h2 {
+    font-family:'Caladea','Cambria',Georgia,serif;
+    font-size:10pt; font-weight:700; text-transform:uppercase; letter-spacing:1.2pt;
+    color:var(--accent);
+    margin:4.4mm 0 1.9mm; padding-bottom:1mm;
+    border-bottom:.7pt solid var(--accent);
+  }
+  h2:first-of-type { margin-top:4mm; }
+
+  .entry { margin-bottom:2.5mm; break-inside:avoid; page-break-inside:avoid; }
+  .row { display:flex; justify-content:space-between; align-items:baseline; gap:6mm; }
+  .row .t { font-weight:700; font-size:9.7pt; }
+  .row .d { font-size:8.7pt; color:var(--muted); white-space:nowrap; font-weight:700; }
+  .loc { font-size:8.5pt; color:var(--muted); font-style:italic; margin-top:.5mm; }
+  ul { list-style:none; margin-top:1.2mm; }
+  li { position:relative; padding-left:3.4mm; margin-bottom:.6mm; }
+  li::before { content:"\2022"; position:absolute; left:0; color:var(--accent); font-weight:700; }
+  .tech { font-size:8.3pt; color:var(--muted); font-style:italic; margin-top:1mm; }
+  .links { font-size:8.1pt; color:var(--accent); font-weight:700; margin-top:.6mm; }
+  .links span { color:var(--muted); font-weight:400; }
+
+  .cols { column-count:2; column-gap:7mm; }
+  .cols .entry { break-inside:avoid; page-break-inside:avoid; }
+  .mini { font-size:8.6pt; }
+  .mini .row .t { font-size:9.2pt; }
+
+  .summary { text-align:justify; }
+  .skillline { margin-bottom:1mm; font-size:8.9pt; }
+  .skillline b { font-weight:700; }
+  .flat { margin-top:1.1mm; font-size:9pt; }
+  .flat b { font-weight:700; }
+  .sep { color:var(--hair); }
+</style>
+</head>
+<body>
+
+  <header>
+    <h1>Yomna Salah Attallah</h1>
+    <div class="title">Flutter Mobile Developer</div>
+    <div class="contact">
+      syomna444@gmail.com &nbsp;|&nbsp; +201003086115 &nbsp;|&nbsp; Giza, Egypt<br />
+      yomna-salah.vercel.app &nbsp;|&nbsp; linkedin.com/in/yomna-s &nbsp;|&nbsp; github.com/syomna
+    </div>
+  </header>
+
+  <h2>Professional Summary</h2>
+  <p class="summary">
+    Flutter Mobile Developer with extensive experience delivering scalable, production-ready mobile applications for
+    clients worldwide. Specialized in Clean Architecture, Firebase, AI integrations, REST APIs, and shipping
+    high-performance apps to the App Store and Google Play. Proven track record of handling full project lifecycles
+    from architecture to deployment.
+  </p>
+
+  <h2>Work Experience</h2>
+
+  <div class="entry">
+    <div class="row">
+      <span class="t">Flutter Developer &nbsp;|&nbsp; Stone Street Syndicate</span>
+      <span class="d">Aug 2025 – Present</span>
+    </div>
+    <div class="loc">Remote · United States</div>
+    <ul>
+      <li>Served as the sole Flutter developer, taking ownership of a partially built app and partnering directly with the founder to architect, maintain, and scale a production photography booking platform across iOS, Android, and Flutter Web.</li>
+      <li>Architected and deployed a multi-stage “Casting Calls” marketplace engine with integrated Stripe payments and RevenueCat subscriptions, extending the Flutter web admin panel with job post moderation and an email blast feature for all users.</li>
+      <li>Implemented a complete push notification system using Node.js Cloud Functions with deep linking, weekly scheduled notifications, and automated re-engagement triggers.</li>
+      <li>Built Travel Boards, where creatives post their travel availability and clients discover and book them by location using the Google Places API.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <span class="t">Freelance Flutter Developer &nbsp;|&nbsp; Upwork</span>
+      <span class="d">Aug 2021 – Present</span>
+    </div>
+    <div class="loc">Remote · International</div>
+    <ul>
+      <li>Delivered 15+ production applications for clients across the US, UAE, France, and South Africa.</li>
+      <li>Handled full project lifecycles, including requirement analysis, UI implementation, REST API integration, and production store deployment.</li>
+      <li>Collaborated closely with clients to translate business requirements into production-ready mobile applications.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <span class="t">Front-End &amp; Mobile Development Trainee &nbsp;|&nbsp; Information Technology Institute (ITI)</span>
+      <span class="d">Mar 2023 – Jul 2023</span>
+    </div>
+    <div class="loc">Hybrid · Egypt</div>
+    <ul>
+      <li>Completed a 4-month intensive technical program specializing in cross-platform mobile and web frontend ecosystems.</li>
+      <li>Co-developed “IPark” (a smart parking mobile solution) with a 5-member Agile team as a graduation project.</li>
+    </ul>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skillline"><b>Languages &amp; Frameworks:</b> <span class="sep">|</span> <b>Primary Mobile Stack:</b> Flutter, Dart, SwiftUI <span class="sep">|</span> <b>Secondary / Web &amp; Scripting:</b> JavaScript, TypeScript, React.js</div>
+  <div class="skillline"><b>Architecture &amp; State Management:</b> <span class="sep">|</span> Clean Architecture, BLoC, Cubit, Provider, MVVM, OOP, SOLID Principles, Dependency Injection</div>
+  <div class="skillline"><b>Backend &amp; APIs:</b> <span class="sep">|</span> REST APIs, Firebase (Authentication, Firestore, Cloud Functions, FCM), Firebase Analytics</div>
+  <div class="skillline"><b>Testing:</b> <span class="sep">|</span> Unit Testing, Widget Testing</div>
+  <div class="skillline"><b>Integrations:</b> <span class="sep">|</span> Stripe, RevenueCat, OpenAI API, Gemini API, Google Cloud (Vision, Maps, Places)</div>
+  <div class="skillline"><b>Tools &amp; DevOps:</b> <span class="sep">|</span> Git, GitHub, CI/CD (Codemagic), App Store Connect, Google Play Console, Figma, Jira</div>
+
+  <h2>Key Projects</h2>
+
+  <div class="entry">
+    <div class="row">
+      <span class="t">Stone Street — Photography Booking Platform</span>
+      <span class="d">Aug 2025 – Present</span>
+    </div>
+    <div class="tech">Tech: Flutter, Provider, Firebase (Auth, Firestore, Cloud Functions), Stripe, RevenueCat, CI/CD (Codemagic)</div>
+    <div class="links">App Store <span>|</span> Google Play</div>
+    <ul>
+      <li>Integrated REST APIs and replaced static data with production backend services across the application.</li>
+      <li>Implemented photographer discovery, booking workflows, Stripe payment integration, and RevenueCat subscriptions.</li>
+      <li>Built a complete push notification system with Firebase Cloud Functions, deep linking, and weekly scheduled notifications while extending the Flutter web admin panel with moderation and email management features.</li>
+      <li>Architected the multi-stage “Casting Calls” marketplace engine and the Travel Boards booking feature, using the Google Places API for location-based discovery.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <span class="t">PenPoints — AI-Powered Spelling Coach for Children</span>
+      <span class="d">Sep 2024 – Aug 2025</span>
+    </div>
+    <div class="tech">Tech: Flutter, Flutter Web, BLoC, Firebase (Auth, Firestore, Cloud Vision API, Cloud Functions), OpenAI API (ChatGPT), Text-to-Speech, QR Code</div>
+    <div class="links">App Store <span>|</span> Google Play</div>
+    <ul>
+      <li>Built an AI-powered spelling coach that analyzes handwritten words using Google Cloud Vision API and OpenAI API to provide instant feedback with highlighted errors and letter-level confidence scores.</li>
+      <li>Delivered cross-platform (mobile + web) experience with grade-specific exercises and real-time audio feedback via Text-to-Speech.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <span class="t">NannyFinder — Family &amp; Nanny Matching Platform</span>
+      <span class="d">May 2022 – Sep 2024</span>
+    </div>
+    <div class="tech">Tech: Flutter, Flutter Web, Firebase (Auth, Firestore, Storage, Hosting, Dynamic Links), BLoC</div>
+    <div class="links">App Store <span>|</span> Google Play <span>|</span> Web</div>
+    <ul>
+      <li>Built a dual-sided platform connecting families with nannies, featuring advanced search filters, profile browsing, and in-app job applications.</li>
+      <li>Architected a shared Flutter codebase for iOS, Android, and Web while maintaining synchronized feature releases across all platforms.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="row">
+      <span class="t">AKM — Concrete Order Tracking Platform</span>
+      <span class="d">Oct 2023 – Apr 2024</span>
+    </div>
+    <div class="tech">Tech: Flutter, REST API, Firebase (Firestore, Analytics, FCM), Google Cloud (Places API, Maps), Location Tracking, BLoC, Localization (English &amp; Arabic)</div>
+    <div class="links">App Store <span>|</span> Google Play</div>
+    <ul>
+      <li>Built a production order tracking application with REST API integration, real-time delivery tracking, location services, and bilingual (English/Arabic) support.</li>
+    </ul>
+  </div>
+
+  <h2>Additional Projects</h2>
+  <div class="cols">
+    <div class="entry mini">
+      <div class="row"><span class="t">MyEyes — Accessibility App for Vision-Impaired Users</span></div>
+      <div class="tech">Tech: Flutter, Gemini AI, Firebase Crashlytics, Google Analytics, Text-to-Speech, Provider</div>
+      <div class="links">Demo <span>|</span> youtube.com/shorts/S7HYC4YXEwA</div>
+    </div>
+    <div class="entry mini">
+      <div class="row"><span class="t">Azkari (أذكاري) — Azkar &amp; Ad'iyah Companion</span></div>
+      <div class="tech">Tech: Flutter, Notifications, Provider, Clean Architecture, Unit Testing, CI/CD (Codemagic)</div>
+      <div class="links">App Store <span>|</span> Google Play</div>
+    </div>
+    <div class="entry mini">
+      <div class="row"><span class="t">Ghana Football — Live Scores, News &amp; Highlights</span></div>
+      <div class="tech">Tech: Flutter, Firebase, REST API, Google Analytics, BLoC</div>
+      <div class="links">App Store <span>|</span> Google Play</div>
+    </div>
+  </div>
+
+  <h2>Web &amp; Front-End Projects</h2>
+  <div class="cols">
+    <div class="entry mini">
+      <div class="row"><span class="t">Shop Managment — Shop Management Web App</span></div>
+      <div class="tech">Tech: React, TypeScript, Material UI, Redux, Firebase, Google Cloud</div>
+      <div class="links">Live demo <span>|</span> github.com/syomna/shop-crud</div>
+    </div>
+    <div class="entry mini">
+      <div class="row"><span class="t">Bosta Clone — Shipment Tracking Web App</span></div>
+      <div class="tech">Tech: React, Material UI, Redux, React Hooks, REST API, Localization</div>
+      <div class="links">Live demo <span>|</span> github.com/syomna/Bosta_Task</div>
+    </div>
+    <div class="entry mini">
+      <div class="row"><span class="t">ArtiGen — AI Image Generation Web App</span></div>
+      <div class="tech">Tech: React, Material UI, Eden AI, Speech Recognition</div>
+      <div class="links">Live demo <span>|</span> github.com/syomna/ArtiGen</div>
+    </div>
+    <div class="entry mini">
+      <div class="row"><span class="t">Chatty — Real-Time Chat Application</span></div>
+      <div class="tech">Tech: React, Node.js, MongoDB, Socket.IO, Material UI</div>
+      <div class="links">Live demo <span>|</span> github.com/syomna/Chatty-Reactjs-Nodejs-app</div>
+    </div>
+    <div class="entry mini">
+      <div class="row"><span class="t">IPark — Smart Parking Solution</span></div>
+      <div class="tech">Tech: React, React Native, Redux Toolkit, Firebase, Stripe, Material UI, Google Cloud</div>
+      <div class="links">Live demo <span>|</span> github.com/Nader-CS/parking-system</div>
+    </div>
+  </div>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="row">
+      <span class="t">Bachelor of Commerce — Accounting &amp; Finance &nbsp;|&nbsp; Cairo University</span>
+      <span class="d">Sep 2015 – Jul 2019</span>
+    </div>
+    <div class="loc">Giza, Egypt</div>
+  </div>
+
+  <h2>Certifications</h2>
+  <div class="flat">
+    <b>Meta iOS UI Development</b> · Coursera / Meta <span class="sep">|</span> <b>Meta Front-End Developer</b> · Coursera / Meta
+  </div>
+
+  <h2>Languages</h2>
+  <div class="flat">
+    Arabic — Native <span class="sep">|</span> English — Professional Proficiency
+  </div>
+
+</body>
+</html>

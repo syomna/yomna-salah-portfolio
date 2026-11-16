@@ -48,10 +48,20 @@ const ProjectCard = ({ project, index, tabLabel }) => {
       >
         <span className="font-mono text-[9px] tracking-[0.2em] uppercase text-ink-low mb-2.5">
           {tabLabel}
+          {project.period && (
+            <span className="ml-3 text-sage normal-case tracking-[0.06em]">
+              {project.period}
+            </span>
+          )}
         </span>
 
         <h3 className="font-heading text-[20px] md:text-[24px] font-medium text-ink tracking-[-0.02em] leading-[1.15] mb-3 m-0">
           {project.title}
+          {project.subtitle && (
+            <span className="block font-mono text-[10px] font-normal tracking-[0.12em] uppercase text-sage mt-1.5">
+              {project.subtitle}
+            </span>
+          )}
         </h3>
 
         <p className="font-body text-[13px] leading-[1.8] text-ink-mid mb-5 max-w-[64ch] m-0">

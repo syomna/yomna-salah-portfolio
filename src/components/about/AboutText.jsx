@@ -14,19 +14,19 @@ const AboutText = () => (
     <motion.div {...reveal(0.1)}>
       <p className="font-body text-[16px] leading-[2.05] text-ink-mid mb-[22px] m-0">
         I'm <strong className="text-ink font-medium">Yomna Salah</strong> — a
-        Flutter Mobile Developer focused on building production-ready mobile and
-        web applications. I’ve worked on freelance and startup projects
-        involving payments, notifications, real-time updates, maps, and AI
-        integrations using Flutter, and Firebase. I also build lightweight internal dashboards and admin tools using React when projects require them.
+        Flutter Mobile Developer with extensive experience delivering scalable,
+        production-ready mobile applications for clients worldwide. I specialize
+        in Clean Architecture, Firebase, AI integrations, and REST APIs, and I
+        ship high-performance apps to the App Store and Google Play.
       </p>
     </motion.div>
 
     <motion.div {...reveal(0.18)}>
       <p className="font-body text-[16px] leading-[2.05] text-ink-mid mb-9 m-0">
-        My experience includes mobile and web app deployment, Firebase services,
-        CI/CD workflows, and maintaining production applications for Android,
-        iOS, and the web. I enjoy building clean, reliable products and
-        collaborating closely with teams and clients.
+        I've handled full project lifecycles — from requirement analysis and
+        architecture through UI implementation, API integration, and production
+        store deployment — shipping 15+ production applications across the US,
+        UAE, France, and South Africa.
       </p>
     </motion.div>
 
@@ -41,13 +41,14 @@ const AboutText = () => (
       <p className="font-body italic text-[15px] text-ink-mid leading-[1.6] m-0">
         Building{" "}
         <strong className="not-italic text-ink font-medium">
-          scalable Flutter apps{" "}
+          production Flutter platforms{" "}
         </strong>
         for{" "}
         <strong className="not-italic text-ink font-medium">
-          Android & iOS
+          Android &amp; iOS
         </strong>
-        .
+        &amp; Flutter Web — currently leading the technical roadmap at Stone
+        Street Syndicate.
       </p>
     </motion.div>
   </div>

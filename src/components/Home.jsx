@@ -10,9 +10,9 @@ import CtaCell from "./home/CtaCell";
 import NameDisplay from "./home/NameDisplay";
 
 const STATS = [
-  { number: "4+", label: "Years building" },
-  { number: "15+", label: "Projects Delivered" },
-  { number: "Production Apps", label: "Android & iOS" },
+  { number: "5+", label: "Years building" },
+  { number: "15+", label: "Production Apps Shipped" },
+  { number: "10+", label: "Countries Served" },
 ];
 
 const scrollToContact = () => {

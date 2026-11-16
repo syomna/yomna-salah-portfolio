@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import About from "./components/About";
 import ContactForm from "./components/ContactForm";
+import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
@@ -26,6 +27,7 @@ function App() {
           <About />
           <Experience />
           <Projects />
+          <Education />
           <ContactForm />
         </motion.main>
       </AnimatePresence>
